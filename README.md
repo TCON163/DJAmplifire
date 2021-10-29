@@ -7,7 +7,7 @@ Major Features:
 Rooms
 Utilize Spotify API
 
-- MVPs:
+MVPs:
  - As a User, I can create an account
  - As a User, I can create a room and become a DJ
  - As a User, I can join a room and become a guest
@@ -20,7 +20,7 @@ Utilize Spotify API
  - As a DJ, I can skip a song
  - As a DJ, I choose what song is playing
 
-- Bonus Features:
+Bonus Features:
  - As a Guest or DJ, I can participate in a chat
  - As a DJ, I can add a requested song to my personal playlist
  - If user has spotify premium, listen ad free
