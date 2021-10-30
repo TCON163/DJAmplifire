@@ -28,14 +28,14 @@ Bonus Features:
 
 Tasks:
 
-Chris (The Watcher (WORDSMITH)) Task:
+@chris-oh99 Chris (The Watcher (WORDSMITH)) Task:
 
-Jason (TimeLord) Task:
+@JasonWozniak Jason (TimeLord) Task:
 
-Emmanuel (Spring Boot/Data) Task:
+@cdmn841 Emmanuel (Spring Boot/Data) Task:
 
-Advaith (Angular) Task:
+@advaithiyer99 Advaith (Angular) Task:
 
-Connor Task:
+@connor-phillips Connor Task:
 
-Tyler (Scrum Lord/ DevOps) Task:
+@TCON163 Tyler (Scrum Lord/ DevOps) Task:
