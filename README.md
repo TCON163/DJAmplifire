@@ -1,7 +1,8 @@
 # DJAmplifire
 
 
-This is a web application that is designed to create online Rooms for multiple users to gather in and listen to music. It will provide features for users who will be a DJ and host the room and have administrative authority over their own session and features for users who will enter an existing room as a Guest. Music will be played using the Spotify API, connecting through the DJ’s spotify account and accessing the DJ’s playlists’. API calls will be reduced by persisting user data in a database (spotify account and playlist details).
+DJAmplifire is an online club for users to host their own jam session or join in others’ fun. A DJ can host a room and have administrative authority over their own session and Guests can enter existing rooms and listen together. DJAmplifire is safe and simple! Only the DJ and their guests will have access to the room they create. The music player in the browser works with the Spotify API, connected through the DJ’s spotify account and accessing the DJ’s playlists. Frequent listeners will always have their favorite songs available, since all users can create accounts that save their preferences. 
+
  	
 Major Features:
 Rooms
