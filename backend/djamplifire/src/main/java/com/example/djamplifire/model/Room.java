@@ -1,5 +1,7 @@
 package com.example.djamplifire.model;
 
+import com.example.djamplifire.Utils.RoomKeyGenerator;
+
 import javax.persistence.*;
 import java.util.UUID;
 
@@ -9,11 +11,7 @@ import java.util.UUID;
 public class Room {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
-
-    @Column(name = "room_code")
-    private UUID roomCode;
+    private String roomCode;
 
     @Column(name = "guest_can_pause")
     private boolean guestCanPause;
@@ -25,29 +23,24 @@ public class Room {
 
     }
 
+    public Room(String roomCode, boolean guestCanPause, int votesToSkip) {
 
-    public Room( boolean guestCanPause, int votesToSkip) {
-       super();
-        this.roomCode = UUID.randomUUID();
+        this.roomCode = roomCode;
         this.guestCanPause = guestCanPause;
         this.votesToSkip = votesToSkip;
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public UUID getRoomCode() {
+    public String getRoomCode() {
         return roomCode;
     }
 
-    public void setRoomCode(UUID roomCode) {
+    public void setRoomCode(String roomCode) {
         this.roomCode = roomCode;
     }
+
+
+
 
     public boolean isGuestCanPause() {
         return guestCanPause;

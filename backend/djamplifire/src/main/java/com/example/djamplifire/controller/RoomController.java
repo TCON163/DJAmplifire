@@ -2,10 +2,9 @@ package com.example.djamplifire.controller;
 
 import com.example.djamplifire.model.Room;
 import com.example.djamplifire.repository.RoomRespository;
+import com.example.djamplifire.service.RoomService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -14,12 +13,22 @@ import java.util.List;
 public class RoomController {
 
     @Autowired
-    private RoomRespository roomRespository;
+    private RoomService roomService;
 
     //get all rooms
     @GetMapping("/rooms")
     public List<Room> getAllRooms() {
-        return roomRespository.findAll();
+        return roomService.getAllRooms();
 
     }
+
+
+    //create a room
+    @PostMapping("/rooms")
+    public Room createRoom(@RequestBody Room room){
+        return roomService.createRoom(room);
+    }
+
+
+
 }
