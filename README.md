@@ -9,7 +9,7 @@ Rooms
 Utilize Spotify API
 
 MVPs:
--As a User, I can create an account
+-As a User, I can create an account \n
 -As a User, I can create a room and become a DJ
 -As a User, I can join a room and become a guest
 -As a Guest or DJ, I can view the other Guests/DJ and the code of the room I’m in
