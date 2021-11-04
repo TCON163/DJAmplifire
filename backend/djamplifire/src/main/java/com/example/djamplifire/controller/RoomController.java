@@ -19,7 +19,8 @@ public class RoomController {
     //get all rooms
     @GetMapping("/rooms")
     public List<Room> getAllRooms() {
-        return roomRespository.findAll();
+//        return roomRespository.fina
+        return null;
 
     }
 }

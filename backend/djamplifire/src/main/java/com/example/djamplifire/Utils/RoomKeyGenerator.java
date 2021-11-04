@@ -8,7 +8,6 @@ package com.example.djamplifire.Utils;
  * @version 1.0
  * @since 11/2/2021
  */
-
 public class RoomKeyGenerator {
     /*
     This is the method that makes a new room key (6 capital letters)
@@ -20,5 +19,9 @@ public class RoomKeyGenerator {
             key = key + ((char) (newLetter));
         }
         return key;
+    }
+
+    public void checkRoomKey(){
+        
     }
 }
