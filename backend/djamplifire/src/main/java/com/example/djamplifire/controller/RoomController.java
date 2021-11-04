@@ -22,6 +22,11 @@ public class RoomController {
 
     }
 
+    @GetMapping("/rooms/{roomCode}")
+    public Room getRoomByKey(@PathVariable("roomCode") String roomCode) {
+        return roomService.getRoomByCode(roomCode);
+    }
+
     //create a room
     @PostMapping("/rooms")
     public Room createRoom(@RequestBody Room room){
@@ -38,7 +43,7 @@ public class RoomController {
     @PutMapping("/rooms/{roomCode}")
     public Room updateRoom(@RequestBody Room room, @PathVariable("roomCode") String roomCode){
 
-        this.roomService.updateRoom(room, roomCode);
+        this.roomService.updateRoom(room);
         return room;
     }
 
