@@ -22,13 +22,25 @@ public class RoomController {
 
     }
 
-
     //create a room
     @PostMapping("/rooms")
     public Room createRoom(@RequestBody Room room){
         return roomService.createRoom(room);
     }
 
+    //delete room
+    @DeleteMapping("rooms/{roomCode}")
+    public void deleteRoom(@PathVariable("roomCode") String roomCode){
+        this.roomService.deleteRoom(roomCode);
+    }
+
+    //update room
+    @PutMapping("/rooms/{roomCode}")
+    public Room updateRoom(@RequestBody Room room, @PathVariable("roomCode") String roomCode){
+
+        this.roomService.updateRoom(room, roomCode);
+        return room;
+    }
 
 
 }

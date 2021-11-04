@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class RoomService {
@@ -30,6 +31,24 @@ public class RoomService {
         return roomRespository.save(room);
     }
 
+    //delete room
+    public void deleteRoom(String roomId){
+        List<Room> roomList = getAllRooms();
+        roomList = roomList.stream().filter(room -> room.getRoomCode()!=roomId).collect(Collectors.toList());
+    }
+
+    //update room
+    public void updateRoom(Room room, String roomID){
+
+        List<Room> roomList = getAllRooms();
+        roomList = roomList.stream().map(b->{
+            if(b.getRoomCode() == roomID){
+                b.setVotesToSkip(room.getVotesToSkip());
+                b.setGuestCanPause(room.isGuestCanPause());
+            }
+            return b;
+        }).collect(Collectors.toList());
+    }
 
 
 
