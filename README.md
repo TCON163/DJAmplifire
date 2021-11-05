@@ -9,22 +9,18 @@ Rooms
 Utilize Spotify API
 
 MVPs:
- - As a User, I can create an account
- - As a User, I can create a room and become a DJ
- - As a User, I can join a room and become a guest
- - As a Guest or DJ, I can view the code to the room I am currently in
- - As a Guest or DJ, I can view the other Guests/DJ in the room
- - As a Guest, I can listen to music
- - As a Guest, I can request a song
- - As a Guest, I can request to skip a song
- - As a DJ, I can kick a Guest
- - As a DJ, I can skip a song
- - As a DJ, I choose what song is playing
+-As a User, I can create an account \n
+-As a User, I can create a room and become a DJ
+-As a User, I can join a room and become a guest
+-As a Guest or DJ, I can view the other Guests/DJ and the code of the room I’m in
+-As a Guest, I can listen to music
+-As a Guest, I can request a song (skip or change it)
+-As a DJ, I can kick a Guest
+-As a DJ, I choose what song is playing (skip or change it)
 
 Bonus Features:
- - As a Guest or DJ, I can participate in a chat
- - As a DJ, I can add a requested song to my personal playlist
- - If user has spotify premium, listen ad free
+-As a Guest or DJ, I can participate in a chat
+-As a DJ, I can add a requested song to my personal playlist
 
 
 Tasks:
