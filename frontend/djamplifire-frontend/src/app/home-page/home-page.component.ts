@@ -16,6 +16,7 @@ export class HomePageComponent implements OnInit {
   }
 
   loginSpotify(): void {
+    alert("logging in")
     this.spotifyService.getTokens()
   }
 
