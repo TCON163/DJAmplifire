@@ -8,20 +8,22 @@ import { HomePageComponent } from './home-page/home-page.component';
 import { RouterModule } from '@angular/router';
 import { CallbackComponent } from './callback/callback.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
+import { CreateRoomComponent } from './create-room/create-room.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
-    CallbackComponent
+    CallbackComponent,
+    CreateRoomComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'callback', component: CallbackComponent },
+      { path: 'create-a-room', component: CreateRoomComponent },
       { path: "", component: HomePageComponent }
     ]),
     MdbCheckboxModule
