@@ -2,15 +2,46 @@ import { Component, OnInit } from '@angular/core';
 import { HomePageService } from '../home-page.service';
 import { SpotifyAuthService } from '../spotify-auth.service';
 import { ActivatedRoute } from '@angular/router';
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+
+} from '@angular/animations';
 
 
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
   providers: [SpotifyAuthService],
-  styleUrls: ['./home-page.component.css']
+  styleUrls: ['./home-page.component.css'],
+  animations: [
+    trigger('slideIn', [
+
+      state('close', style({
+        transform: 'translateY(0%)',
+        color: 'purple'
+      })),
+
+      transition('void => close', [
+        style({
+          // marginRight: '800px'
+          transform: 'translateY(50%)',
+          color: 'yellow'
+
+        }),
+        animate('1000ms')
+      ]),
+
+
+    ]),
+  ]
 })
 export class HomePageComponent implements OnInit {
+
+  test = true;
 
   access_token!: string;
   token_type!: string;

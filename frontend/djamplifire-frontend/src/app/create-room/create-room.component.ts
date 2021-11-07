@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./create-room.component.scss']
 })
 export class CreateRoomComponent implements OnInit {
-
+  loggedIn = false;
 
 
   constructor() {
@@ -18,6 +18,10 @@ export class CreateRoomComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  clickFakeLogin() {
+    this.loggedIn = !this.loggedIn;
   }
 
 }

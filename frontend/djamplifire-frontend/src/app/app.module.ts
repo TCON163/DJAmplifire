@@ -9,6 +9,7 @@ import { RouterModule } from '@angular/router';
 import { CallbackComponent } from './callback/callback.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { CreateRoomComponent } from './create-room/create-room.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { CreateRoomComponent } from './create-room/create-room.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot([
