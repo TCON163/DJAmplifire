@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { SpotifyAuthService } from '../spotify-auth.service';
 
 
 
@@ -8,7 +7,7 @@ import { SpotifyAuthService } from '../spotify-auth.service';
 @Component({
   selector: 'app-create-room',
   templateUrl: './create-room.component.html',
-  providers: [SpotifyAuthService],
+
   styleUrls: ['./create-room.component.scss']
 })
 export class CreateRoomComponent implements OnInit {
@@ -17,7 +16,7 @@ export class CreateRoomComponent implements OnInit {
   token_type!: string;
   expires_in!: number;
 
-  constructor(private route: ActivatedRoute, private spotifyService: SpotifyAuthService) {
+  constructor(private route: ActivatedRoute) {
 
   }
 

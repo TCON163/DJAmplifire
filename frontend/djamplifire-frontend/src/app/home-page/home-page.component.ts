@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HomePageService } from '../home-page.service';
-import { SpotifyAuthService } from '../spotify-auth.service';
 import { ActivatedRoute } from '@angular/router';
 import {
   trigger,
@@ -15,7 +13,6 @@ import {
 @Component({
   selector: 'home-page',
   templateUrl: './home-page.component.html',
-  providers: [SpotifyAuthService],
   styleUrls: ['./home-page.component.css'],
   animations: [
     trigger('slideIn', [
@@ -46,7 +43,7 @@ export class HomePageComponent implements OnInit {
   access_token!: string;
   token_type!: string;
   expires_in!: number;
-  constructor(private route: ActivatedRoute, private spotifyService: SpotifyAuthService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.route.fragment
