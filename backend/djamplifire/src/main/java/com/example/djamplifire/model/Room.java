@@ -19,6 +19,12 @@ public class Room {
     @Column(name = "votes_to_skip")
     private int votesToSkip;
 
+    @Column
+    private String roomTitle;
+
+    @Column
+    private String roomToken;
+
     public Room() {
 
     }
@@ -30,6 +36,21 @@ public class Room {
         this.votesToSkip = votesToSkip;
     }
 
+    public String getRoomTitle() {
+        return roomTitle;
+    }
+
+    public String getRoomToken() {
+        return roomToken;
+    }
+
+    public void setRoomTitle(String roomTitle) {
+        this.roomTitle = roomTitle;
+    }
+
+    public void setRoomToken(String roomToken) {
+        this.roomToken = roomToken;
+    }
 
     public String getRoomCode() {
         return roomCode;
