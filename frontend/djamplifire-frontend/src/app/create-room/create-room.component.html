@@ -1,5 +1,6 @@
-<div>
-<a routerLink="/" routerLinkActive="active"><button mdbRipple type="button" class="btn-close "></button></a>
+<div class=" bg-dark">
+<div class="ms-5 ">
+<a  routerLink="/" routerLinkActive="active"><button mdbRipple type="button" class="btn btn-danger ">Back</button></a>
 
 <div class="   d-flex align-items-center justify-content-center"
 style="height: 100vh;">
@@ -13,10 +14,8 @@ style="height: 100vh;">
     </p>
 
     <div>
-<a href="https://accounts.spotify.com/authorize/?response_type=token&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&scope=user-read-currently-playing%20streaming&redirect_uri=http://127.0.0.1:4200/"><button mdbRipple type="button" class="btn btn-primary">Login to Spotify</button></a>
-<!-- This button will not be nesscary I just created to see the concept -->
-<button (click)="clickFakeLogin()" class="btn btn-secondary sticky-top">Fake Login</button>
-<!-- This button ^^^  -->
+<a href="https://accounts.spotify.com/authorize/?response_type=token&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&scope=user-read-currently-playing%20streaming&redirect_uri=http://127.0.0.1:4200/create-a-room"><button mdbRipple type="button" class="btn btn-primary">Login to Spotify</button></a>
+
 </div>
 <div>
 
@@ -37,14 +36,13 @@ style="height: 100vh;">
     <button class="btn btn-danger"> Create Room</button>
     </div>
 </form>
-<!-- This button will not be nesscary I just created to see the concept -->
-<button (click)="clickFakeLogin()" class="btn btn-secondary">Fake Back Button</button>
-<!-- This button ^^^  -->
+
 
 </ng-template>
 
 
 
+</div>
 </div>
 </div>
 </div>

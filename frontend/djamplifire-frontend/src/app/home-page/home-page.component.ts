@@ -22,15 +22,15 @@ import {
 
       state('close', style({
         transform: 'translateY(0%)',
-        color: 'purple'
+        color: 'yellow'
       })),
 
       transition('void => close', [
         style({
           // marginRight: '800px'
           transform: 'translateY(50%)',
-          color: 'yellow'
 
+          color: 'purple'
         }),
         animate('1000ms')
       ]),
@@ -64,9 +64,5 @@ export class HomePageComponent implements OnInit {
 
   }
 
-  loginSpotify(): void {
-    alert("logging in")
-    this.spotifyService.getTokens()
-  }
 
 }
