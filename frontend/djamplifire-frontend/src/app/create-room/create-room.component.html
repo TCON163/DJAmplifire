@@ -25,16 +25,43 @@ style="height: 100vh;">
 
 <ng-template #elseBlock>
 <h1 class="card-title">Create a Room</h1>
-<form>
-<div>
-    <label>Enter a title for the room: </label>
-    </div>
-<div>
-    <input type="text" />
-    </div>
-<div>
-    <button class="btn btn-danger"> Create Room</button>
-    </div>
+<form (ngSubmit) = "function()">
+
+    <div>
+        <label>Enter a title for the room: </label>
+        </div>
+    <div>
+        <input type="text" />
+        </div>
+        <br>
+        <!-- Votes Text Field -->
+    <div>
+        <label>Votes to Skip</label>
+        </div>
+
+    <div>
+        <input type="number" />
+        </div>
+        <br>
+    <div>
+        <!-- Pause Buttons -->
+        <label>Can Guests Pause?</label>
+        </div>
+    <div>
+            <label>Yes</label>
+            <br>
+            <input type="radio" />
+            <br>
+            <label>No</label>
+            <br>
+            <input type="radio" />
+        </div>
+        <br>
+    <div>
+        <button class="btn btn-danger"> Create Room</button>
+        </div>
+
+        
 </form>
 
 

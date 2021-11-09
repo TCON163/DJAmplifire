@@ -16,24 +16,33 @@ public class Room {
     @Column(name = "guest_can_pause")
     private boolean guestCanPause;
 
-    @Column(name = "votes_to_skip")
-    private int votesToSkip;
-
     @Column
     private String roomTitle;
 
     @Column
     private String roomToken;
 
+    @Column
+    private int numberOfSkips;
+
+
     public Room() {
 
     }
 
-    public Room(String roomCode, boolean guestCanPause, int votesToSkip) {
+    public Room(String roomCode, boolean guestCanPause) {
 
         this.roomCode = roomCode;
         this.guestCanPause = guestCanPause;
-        this.votesToSkip = votesToSkip;
+
+    }
+
+    public int getNumberOfSkips() {
+        return numberOfSkips;
+    }
+
+    public void setNumberOfSkips(int numberOfSkips) {
+        this.numberOfSkips = numberOfSkips;
     }
 
     public String getRoomTitle() {
@@ -61,8 +70,6 @@ public class Room {
     }
 
 
-
-
     public boolean isGuestCanPause() {
         return guestCanPause;
     }
@@ -71,11 +78,4 @@ public class Room {
         this.guestCanPause = guestCanPause;
     }
 
-    public int getVotesToSkip() {
-        return votesToSkip;
-    }
-
-    public void setVotesToSkip(int votesToSkip) {
-        this.votesToSkip = votesToSkip;
-    }
 }
