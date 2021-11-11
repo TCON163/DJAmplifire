@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69b12ea1-901a-45ae-afc3-10369915b48c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/Utils/RoomKeyGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/Utils/RoomKeyGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/controller/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/controller/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/model/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/backend/djamplifire/src/main/java/com/example/djamplifire/model/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/djamplifire-frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/djamplifire-frontend/package-lock.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/backend/djamplifire/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../AirlineTicketingKioskTeamD" />
     <property name="settings.editor.selected.configurable" value="MTConfigurable" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

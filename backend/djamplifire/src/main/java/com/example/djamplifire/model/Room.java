@@ -1,4 +1,4 @@
-package com.example.djamplifire.model;
+    package com.example.djamplifire.model;
 
 import com.example.djamplifire.Utils.RoomKeyGenerator;
 
