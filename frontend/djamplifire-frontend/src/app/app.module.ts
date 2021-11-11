@@ -10,6 +10,7 @@ import { CallbackComponent } from './callback/callback.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { CreateRoomComponent } from './create-room/create-room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { JoinRoomComponent } from './join-room/join-room.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppComponent,
     HomePageComponent,
     CallbackComponent,
-    CreateRoomComponent
+    CreateRoomComponent,
+    JoinRoomComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     RouterModule.forRoot([
       { path: 'create-a-room', component: CreateRoomComponent },
-      { path: "", component: HomePageComponent }
+      { path: "", component: HomePageComponent },
+      { path: 'join', component: JoinRoomComponent}
     ]),
     MdbCheckboxModule
   ],
