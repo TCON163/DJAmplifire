@@ -12,6 +12,8 @@ import { CreateRoomComponent } from './create-room/create-room.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { JoinRoomComponent } from './join-room/join-room.component';
 import { AboutUsComponent } from './about-us/about-us.component';
+import { RoomComponent } from './room/room.component';
+import { GuestComponent } from './guest/guest.component';
 
 
 @NgModule({
@@ -21,7 +23,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
     CallbackComponent,
     CreateRoomComponent,
     JoinRoomComponent,
-    AboutUsComponent
+    AboutUsComponent,
+    RoomComponent,
+    GuestComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +36,9 @@ import { AboutUsComponent } from './about-us/about-us.component';
       { path: 'create-a-room', component: CreateRoomComponent },
       { path: "", component: HomePageComponent },
       { path: 'join', component: JoinRoomComponent},
-      {path: 'about-us', component: AboutUsComponent}
+      {path: 'about-us', component: AboutUsComponent},
+      {path: 'room', component: RoomComponent}, //:roomCode
+      {path: 'guest', component: GuestComponent}
     ]),
     MdbCheckboxModule
   ],
