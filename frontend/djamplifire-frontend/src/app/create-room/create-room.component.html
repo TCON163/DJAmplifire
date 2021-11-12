@@ -25,13 +25,13 @@ style="height: 100vh;">
 
 <ng-template #elseBlock>
 <h1 class="card-title">Create a Room</h1>
-<form (ngSubmit) = "function()">
+<form >
 
     <div>
         <label>Enter a title for the room: </label>
         </div>
     <div>
-        <input type="text" />
+        <input type="text" required/>
         </div>
         <br>
         <!-- Votes Text Field -->
@@ -40,7 +40,7 @@ style="height: 100vh;">
         </div>
 
     <div>
-        <input type="number" />
+        <input type="number" required/>
         </div>
         <br>
     <div>
@@ -49,12 +49,14 @@ style="height: 100vh;">
         </div>
     <div>
             <label>Yes</label>
-            <br>
-            <input type="radio" />
-            <br>
+         
+            <input type="radio" name="guestCanPause" required/>
             <label>No</label>
-            <br>
-            <input type="radio" />
+            <input type="radio" name="guestCanPause" required/>
+            
+            
+         
+            
         </div>
         <br>
     <div>
