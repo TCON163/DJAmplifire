@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router"
 import { FormsModule } from '@angular/forms';
 import { Room } from '../room';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-join-room',
@@ -10,13 +11,24 @@ import { Room } from '../room';
 })
 export class JoinRoomComponent implements OnInit {
   room: Room = new Room();
-  constructor(private router: Router) { }
+  constructor(private router: Router, private roomService: RoomService) { }
 
   ngOnInit(): void {
 
   }
   onSubmit() {
-    console.log(this.room.roomCode)
-    this.router.navigate(["room/", this.room.roomCode])
+
+    this.roomService.getRoom(this.room).subscribe(data => {
+
+      this.router.navigate(["room/", data.roomCode]);
+
+
+    },
+      error => {
+        console.log(error);
+        alert("Invalid Room Code!")
+      })
+
+
   }
 }

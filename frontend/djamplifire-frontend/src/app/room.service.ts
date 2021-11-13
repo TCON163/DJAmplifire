@@ -26,4 +26,15 @@ export class RoomService {
 
 
   }
+
+
+
+
+  getRoom(room: Room): Observable<Room> {
+    const headerOptions = new HttpHeaders();
+
+    headerOptions.set('Content-Type', 'application/json')
+
+    return this.http.get<Room>(this.roomUrl + "/" + room.roomCode, { headers: headerOptions });
+  }
 }
