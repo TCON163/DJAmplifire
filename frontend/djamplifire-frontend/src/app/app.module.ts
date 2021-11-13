@@ -16,6 +16,7 @@ import { RoomComponent } from './room/room.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RoomService } from './room.service';
+import { WebplayerComponent } from './webplayer/webplayer.component';
 
 
 
@@ -27,7 +28,8 @@ import { RoomService } from './room.service';
     CreateRoomComponent,
     JoinRoomComponent,
     AboutUsComponent,
-    RoomComponent
+    RoomComponent,
+    WebplayerComponent
   ],
   imports: [
     BrowserModule,

@@ -3,6 +3,7 @@ import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -12,6 +13,7 @@ export class RoomComponent implements OnInit {
 
   host = false;
   room: Room = new Room();
+
 
   constructor(private route: ActivatedRoute, private roomService: RoomService) { }
 
@@ -46,6 +48,16 @@ export class RoomComponent implements OnInit {
 
       }
     })
+
+    
+
+    
+
+    
+
+      
+
+
 
   }
 
