@@ -20,7 +20,7 @@ export class JoinRoomComponent implements OnInit {
 
     this.roomService.getRoom(this.room).subscribe(data => {
 
-      this.router.navigate(["room/", data.roomCode]);
+      this.router.navigate(["room/", this.room.roomCode]);
 
 
     },

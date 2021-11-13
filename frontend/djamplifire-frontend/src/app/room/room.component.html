@@ -1,10 +1,27 @@
-<div class="modal-body row">
-   <div class="col-md-6" style="background-color: darkgreen; color:white">
-      //DJ part of the room - Disc Jockey Side
-      //Install DJ Component <!--<dj></dj>???-->
+
+<div>
+
+   <div *ngIf="!host; else elseBlock">
+<div class="col-md-6" style="background-color: lightgreen; color: black;">
+            Room : {{room.roomTitle}}
+      </div>
+
+
+      
    </div>
-   <div class="col-md-6" style="background-color: lightgreen; color: black;">
-      //Guest part of the room - Party Side
-      //Install Guest Component <!--<GuestComponent></GuestComponent>???-->
-   </div>
+   <ng-template #elseBlock>
+      <div class="modal-body row">
+         <div class="col-md-6" style="background-color: darkgreen; color:white">
+            //DJ part of the room - Disc Jockey Side
+            //Install DJ Component <!--<dj></dj>???-->
+         </div>
+
+      </div>
+
+   </ng-template>
+
+
+
+
+
 </div>
