@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router"
+import { FormsModule } from '@angular/forms';
+import { Room } from '../room';
 
 @Component({
   selector: 'app-join-room',
@@ -6,16 +9,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./join-room.component.scss']
 })
 export class JoinRoomComponent implements OnInit {
-
-  constructor() { }
+  room: Room = new Room();
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
 
   }
-  enterRoom(){
-    //DO IT... GO GO GO
-    //ROUTE TO THE RIGHT COMPONENT
-    //USE A URL BUILDER??
-    URL: "localhost:" + "The cool code"
+  onSubmit() {
+    console.log(this.room.roomCode)
+    this.router.navigate(["room/", this.room.roomCode])
   }
 }
