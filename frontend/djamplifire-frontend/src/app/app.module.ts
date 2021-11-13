@@ -40,7 +40,7 @@ import { RoomService } from './room.service';
       { path: "", component: HomePageComponent },
       { path: 'join', component: JoinRoomComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'room', component: RoomComponent }, //:roomCode
+      { path: 'room/:roomCode', component: RoomComponent }, //:roomCode
       { path: 'guest', component: GuestComponent }
     ]),
     MdbCheckboxModule,

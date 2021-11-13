@@ -2,8 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RoomService } from '../room.service';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, Params } from '@angular/router';
 import { Room } from "../room";
+import { HttpParams } from '@angular/common/http';
 
 
 
@@ -64,13 +65,19 @@ export class CreateRoomComponent implements OnInit {
   async onSubmit() {
 
     this.room.roomToken = this.access_token;
-    await this.roomService.createRoom(this.room).subscribe(data => {
-      console.log(data);
+    this.roomService.createRoom(this.room).subscribe(data => {
+
       this.room.roomCode = data.roomCode;
 
 
     }).add(() => {
-      this.router.navigate([`room/`, { roomCode: this.room.roomCode }])
+      let p: string = this.room.roomCode
+
+      this.router.navigate(['room', p], {
+        queryParams: {
+          host: true
+        }
+      })
     });
 
 
