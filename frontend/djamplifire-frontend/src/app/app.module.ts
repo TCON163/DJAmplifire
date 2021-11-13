@@ -14,6 +14,9 @@ import { JoinRoomComponent } from './join-room/join-room.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RoomComponent } from './room/room.component';
 import { GuestComponent } from './guest/guest.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RoomService } from './room.service';
+
 
 
 @NgModule({
@@ -35,14 +38,16 @@ import { GuestComponent } from './guest/guest.component';
     RouterModule.forRoot([
       { path: 'create-a-room', component: CreateRoomComponent },
       { path: "", component: HomePageComponent },
-      { path: 'join', component: JoinRoomComponent},
-      {path: 'about-us', component: AboutUsComponent},
-      {path: 'room', component: RoomComponent}, //:roomCode
-      {path: 'guest', component: GuestComponent}
+      { path: 'join', component: JoinRoomComponent },
+      { path: 'about-us', component: AboutUsComponent },
+      { path: 'room', component: RoomComponent }, //:roomCode
+      { path: 'guest', component: GuestComponent }
     ]),
-    MdbCheckboxModule
+    MdbCheckboxModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [RoomService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

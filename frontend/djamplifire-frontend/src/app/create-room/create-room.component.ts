@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { RoomService } from '../room.service';
+import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Room } from "../room";
 
 
 
@@ -12,11 +16,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CreateRoomComponent implements OnInit {
   loggedIn = false;
-  access_token!: string;
-  token_type!: string;
-  expires_in!: number;
 
-  constructor(private route: ActivatedRoute) {
+  room: Room = new Room();
+  access_token!: string;
+
+
+
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private router: Router) {
 
   }
 
@@ -32,12 +38,6 @@ export class CreateRoomComponent implements OnInit {
             if (x.startsWith("access_token")) {
               let t = x.split("=");
               this.access_token = t[1];
-            } else if (x.startsWith("token_type")) {
-              let t = x.split("=");
-              this.token_type = t[1];
-            } else if (x.startsWith("expires_in")) {
-              let t = x.split("=");
-              this.expires_in = parseInt(t[1]);
             }
 
             console.log(this.access_token);
@@ -49,7 +49,35 @@ export class CreateRoomComponent implements OnInit {
 
   }
 
-  
+
+  createRoom(): void {
+
+
+
+
+
+
+
+  }
+
+
+  async onSubmit() {
+
+    this.room.roomToken = this.access_token;
+    await this.roomService.createRoom(this.room).subscribe(data => {
+      console.log(data);
+      this.room.roomCode = data.roomCode;
+
+
+    }).add(() => {
+      this.router.navigate([`room/`, { roomCode: this.room.roomCode }])
+    });
+
+
+
+  }
+
+
 
 
 }
