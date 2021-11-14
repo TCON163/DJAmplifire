@@ -14,6 +14,7 @@ import { JoinRoomComponent } from './join-room/join-room.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { RoomComponent } from './room/room.component';
 import { GuestComponent } from './guest/guest.component';
+import { PlayerComponent } from './player/player.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { GuestComponent } from './guest/guest.component';
     JoinRoomComponent,
     AboutUsComponent,
     RoomComponent,
-    GuestComponent
+    GuestComponent,
+    PlayerComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +40,9 @@ import { GuestComponent } from './guest/guest.component';
       { path: 'join', component: JoinRoomComponent},
       {path: 'about-us', component: AboutUsComponent},
       {path: 'room', component: RoomComponent}, //:roomCode
-      {path: 'guest', component: GuestComponent}
+      {path: 'player', component: PlayerComponent}
+      
+      
     ]),
     MdbCheckboxModule
   ],
