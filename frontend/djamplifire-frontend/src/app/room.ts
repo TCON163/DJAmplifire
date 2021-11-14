@@ -1,62 +1,62 @@
-class Room { 
-   
-    _roomCode!: string;
+export class Room {
 
-    _guestCanPause!:boolean;
+    roomCode!: string;
 
-    _roomTitle!: string;
+    guestCanPause!: boolean;
 
-    _roomToken!: string;
+    roomTitle!: string;
 
-    _numberOfSkips!: number;
+    roomToken!: string;
 
-    constructor() { 
-        
-     }  
+    numberOfSkips!: number;
 
-     public get roomCode(){
-         return this._roomCode;
-     }
+    // constructor() {
 
-     public get guestCanPause(){
-        return this._guestCanPause;
-    }
+    // }
 
-     public get roomTitle(){
-        return this._roomTitle;
-    }
+    // public get roomCode() {
+    //     return this._roomCode;
+    // }
 
-    public get roomToken(){
-        return this._roomToken;
-    }
+    // public get guestCanPause() {
+    //     return this._guestCanPause;
+    // }
 
-    public get numberOfSkips(){
-        return this._numberOfSkips;
-    }
+    // public get roomTitle() {
+    //     return this._roomTitle;
+    // }
 
-    public set roomCode(theRoomCode: string) {
-        
-        this._roomCode = theRoomCode;
-    }
+    // public get roomToken() {
+    //     return this._roomToken;
+    // }
 
-    public set guestCanPause(theGuestPause: boolean) {
-        
-        this._guestCanPause = theGuestPause;
-    }
+    // public get numberOfSkips() {
+    //     return this._numberOfSkips;
+    // }
 
-    public set roomTitle(theRoomTitle: string) {
-        
-        this._roomTitle = theRoomTitle;
-    }
+    // public set roomCode(theRoomCode: string) {
 
-    public set roomToken(theRoomToken: string) {
-        
-        this._roomToken = theRoomToken;
-    }
+    //     this._roomCode = theRoomCode;
+    // }
 
-    public set numberOfSkips(theNumberOfSkips: number) {
-        
-        this._numberOfSkips = theNumberOfSkips;
-    }
+    // public set guestCanPause(theGuestPause: boolean) {
 
- }
+    //     this._guestCanPause = theGuestPause;
+    // }
+
+    // public set roomTitle(theRoomTitle: string) {
+
+    //     this._roomTitle = theRoomTitle;
+    // }
+
+    // public set roomToken(theRoomToken: string) {
+
+    //     this._roomToken = theRoomToken;
+    // }
+
+    // public set numberOfSkips(theNumberOfSkips: number) {
+
+    //     this._numberOfSkips = theNumberOfSkips;
+    // }
+
+}

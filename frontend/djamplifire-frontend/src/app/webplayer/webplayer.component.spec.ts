@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GuestComponent } from './guest.component';
+import { WebplayerComponent } from './webplayer.component';
 
-describe('GuestComponent', () => {
-  let component: GuestComponent;
-  let fixture: ComponentFixture<GuestComponent>;
+describe('WebplayerComponent', () => {
+  let component: WebplayerComponent;
+  let fixture: ComponentFixture<WebplayerComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GuestComponent ]
+      declarations: [ WebplayerComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GuestComponent);
+    fixture = TestBed.createComponent(WebplayerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

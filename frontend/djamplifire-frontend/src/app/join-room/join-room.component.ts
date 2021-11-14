@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from "@angular/router"
+import { FormsModule } from '@angular/forms';
+import { Room } from '../room';
+import { RoomService } from '../room.service';
 
 @Component({
   selector: 'app-join-room',
@@ -6,16 +10,25 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./join-room.component.scss']
 })
 export class JoinRoomComponent implements OnInit {
-
-  constructor() { }
+  room: Room = new Room();
+  constructor(private router: Router, private roomService: RoomService) { }
 
   ngOnInit(): void {
 
   }
-  enterRoom(){
-    //DO IT... GO GO GO
-    //ROUTE TO THE RIGHT COMPONENT
-    //USE A URL BUILDER??
-    URL: "localhost:" + "The cool code"
+  onSubmit() {
+
+    this.roomService.getRoom(this.room).subscribe(data => {
+
+      this.router.navigate(["room/", data.roomCode]);
+
+
+    },
+      error => {
+        console.log(error);
+        alert("Invalid Room Code!")
+      })
+
+
   }
 }

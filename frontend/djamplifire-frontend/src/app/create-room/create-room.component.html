@@ -25,22 +25,24 @@ style="height: 100vh;">
 
 <ng-template #elseBlock>
 <h1 class="card-title">Create a Room</h1>
-<form>
+
+<form (ngSubmit)="onSubmit()">
 
     <div>
-        <label>Enter a title for the room: </label>
+        <label for="title">Enter a title for the room: </label>
         </div>
     <div>
-        <input type="text" />
+        <input id="title" type="text" [(ngModel)] = "room.roomTitle" [ngModelOptions]="{standalone: true}" required/>
         </div>
+  
         <br>
         <!-- Votes Text Field -->
     <div>
-        <label>Votes to Skip</label>
+        <label for="votes">Votes to Skip</label>
         </div>
 
     <div>
-        <input type="number" />
+        <input id="votes" type="number" [(ngModel)] = "room.numberOfSkips" [ngModelOptions]="{standalone: true}" required/>
         </div>
         <br>
     <div>
@@ -49,16 +51,18 @@ style="height: 100vh;">
         </div>
     <div>
             <label>Yes</label>
-            <br>
-            <input type="radio" />
-            <br>
+         
+            <input type="radio" name="guestCanPause" value="true" [(ngModel)] = "room.guestCanPause" [ngModelOptions]="{standalone: true}" required/>
             <label>No</label>
-            <br>
-            <input type="radio" />
+            <input type="radio" name="guestCanPause" value="false" [(ngModel)] = "room.guestCanPause" [ngModelOptions]="{standalone: true}" required/>
+            
+            
+         
+            
         </div>
         <br>
     <div>
-        <button class="btn btn-danger"> Create Room</button>
+        <button class="btn btn-danger" type="ngSubmit"> Create Room</button>
         </div>
 
         
