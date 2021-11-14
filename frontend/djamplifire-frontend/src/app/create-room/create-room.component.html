@@ -1,80 +1,102 @@
-<div class=" bg-dark">
-<div class="ms-5 ">
-<a  routerLink="/" routerLinkActive="active"><button mdbRipple type="button" class="btn btn-danger ">Back</button></a>
+<div class="bg-dark">
+  <div class="ms-5">
+    <a routerLink="/" routerLinkActive="active"
+      ><button mdbRipple type="button" class="btn btn-danger">Back</button></a
+    >
 
-<div class="   d-flex align-items-center justify-content-center"
-style="height: 100vh;">
+    <div
+      class="d-flex align-items-center justify-content-center"
+      style="height: 100vh"
+    >
+      <div class="card">
+        <div class="card-body">
+          <div *ngIf="!loggedIn; else elseBlock">
+            <h1 class="card-title">Login to Spotify</h1>
+            <p class="card-text">
+              You have to have Spotify premium to be able to DJ on this site.
+            </p>
 
-<div class="card">
-<div class="card-body">
-<div *ngIf="!loggedIn; else elseBlock">
-<h1 class="card-title">Login to Spotify</h1>
-<p class="card-text">
-      You have to have Spotify premium to be able to DJ on this site.
-    </p>
+            <div>
+              <button
+                (click)="login()"
+                mdbRipple
+                type="button"
+                class="btn btn-primary"
+              >
+                Login to Spotify
+              </button>
+            </div>
+            <div></div>
+          </div>
 
-    <div>
-<a href="https://accounts.spotify.com/authorize/?response_type=token&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&scope=user-read-currently-playing%20streaming&redirect_uri=http://127.0.0.1:4200/create-a-room"><button mdbRipple type="button" class="btn btn-primary">Login to Spotify</button></a>
+          <ng-template #elseBlock>
+            <h1 class="card-title">Create a Room</h1>
 
-</div>
-<div>
+            <form (ngSubmit)="onSubmit()">
+              <div>
+                <label for="title">Enter a title for the room: </label>
+              </div>
+              <div>
+                <input
+                  id="title"
+                  type="text"
+                  [(ngModel)]="room.roomTitle"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+              </div>
 
-</div>
-</div>
+              <br />
+              <!-- Votes Text Field -->
+              <div>
+                <label for="votes">Votes to Skip</label>
+              </div>
 
+              <div>
+                <input
+                  id="votes"
+                  type="number"
+                  [(ngModel)]="room.numberOfSkips"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+              </div>
+              <br />
+              <div>
+                <!-- Pause Buttons -->
+                <label>Can Guests Pause?</label>
+              </div>
+              <div>
+                <label>Yes</label>
 
-<ng-template #elseBlock>
-<h1 class="card-title">Create a Room</h1>
-
-<form (ngSubmit)="onSubmit()">
-
-    <div>
-        <label for="title">Enter a title for the room: </label>
+                <input
+                  type="radio"
+                  name="guestCanPause"
+                  value="true"
+                  [(ngModel)]="room.guestCanPause"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+                <label>No</label>
+                <input
+                  type="radio"
+                  name="guestCanPause"
+                  value="false"
+                  [(ngModel)]="room.guestCanPause"
+                  [ngModelOptions]="{ standalone: true }"
+                  required
+                />
+              </div>
+              <br />
+              <div>
+                <button class="btn btn-danger" type="ngSubmit">
+                  Create Room
+                </button>
+              </div>
+            </form>
+          </ng-template>
         </div>
-    <div>
-        <input id="title" type="text" [(ngModel)] = "room.roomTitle" [ngModelOptions]="{standalone: true}" required/>
-        </div>
-  
-        <br>
-        <!-- Votes Text Field -->
-    <div>
-        <label for="votes">Votes to Skip</label>
-        </div>
-
-    <div>
-        <input id="votes" type="number" [(ngModel)] = "room.numberOfSkips" [ngModelOptions]="{standalone: true}" required/>
-        </div>
-        <br>
-    <div>
-        <!-- Pause Buttons -->
-        <label>Can Guests Pause?</label>
-        </div>
-    <div>
-            <label>Yes</label>
-         
-            <input type="radio" name="guestCanPause" value="true" [(ngModel)] = "room.guestCanPause" [ngModelOptions]="{standalone: true}" required/>
-            <label>No</label>
-            <input type="radio" name="guestCanPause" value="false" [(ngModel)] = "room.guestCanPause" [ngModelOptions]="{standalone: true}" required/>
-            
-            
-         
-            
-        </div>
-        <br>
-    <div>
-        <button class="btn btn-danger" type="ngSubmit"> Create Room</button>
-        </div>
-
-        
-</form>
-
-
-</ng-template>
-
-
-
-</div>
-</div>
-</div>
-</div>
+      </div>
+    </div>
+  </div>
 </div>

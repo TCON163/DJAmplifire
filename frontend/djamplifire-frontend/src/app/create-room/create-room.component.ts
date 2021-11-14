@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, Params } from '@angular/router';
 import { Room } from "../room";
 import { HttpParams } from '@angular/common/http';
+import { SpotifyService } from '../spotify.service';
 
 
 
@@ -23,7 +24,7 @@ export class CreateRoomComponent implements OnInit {
 
 
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService, private router: Router) {
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private router: Router, private spotifyService: SpotifyService) {
 
   }
 
@@ -51,16 +52,7 @@ export class CreateRoomComponent implements OnInit {
   }
 
 
-  createRoom(): void {
-
-
-
-
-
-
-
-  }
-
+ 
 
   async onSubmit() {
 
@@ -81,6 +73,13 @@ export class CreateRoomComponent implements OnInit {
     });
 
 
+
+  }
+
+
+
+  login(): void {
+    window.location.href = this.spotifyService.authSpotifyUrl
 
   }
 
