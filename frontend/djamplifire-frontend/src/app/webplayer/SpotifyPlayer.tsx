@@ -1,13 +1,20 @@
 import * as React from "react"
 
-import {  useCallback } from "react";
+import {  useCallback, FC } from "react";
 import { WebPlaybackSDK } from "react-spotify-web-playback-sdk";
 
+interface Props extends React.HTMLAttributes<Element> {
+    TOKEN:string;
+}
 
-export default function SpotifyPlayer() {
 
+const SpotifyPlayer: FC<Props> = ({TOKEN}) => {
 
-    const getOAuthToken = useCallback(callback => callback("BQBu01GzRaBcZ4Nk9c1A0JkPrRqJCkBUMZzTUd2DMhliVgTZaZBjYtYFpD37bRzH5ym1kT-5ZdoAuU-8DxXDu9cVDFyJjQj3VvEypLGKjAi3QUWV5gtLYXzu9EEy4hCHkfd6rrBjMuiRP5R14oS6gZZPufWtIKaG3eDr5dIMnfNpB16U1Yz9CYCc9p4aJ9MUmi0TDXfBWB5V67_zFUfupFg"),[] )
+    
+
+    
+
+    const getOAuthToken = useCallback(callback => callback(TOKEN),[] )
 
 
     return (
@@ -20,3 +27,5 @@ export default function SpotifyPlayer() {
             </WebPlaybackSDK>
     );
 }
+
+export default SpotifyPlayer;

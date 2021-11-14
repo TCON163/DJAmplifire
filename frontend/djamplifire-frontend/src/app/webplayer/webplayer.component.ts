@@ -1,17 +1,25 @@
-import { AfterViewInit, Component, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnDestroy, SimpleChanges, Input, OnInit } from '@angular/core';
+
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import SpotifyPlayer from './SpotifyPlayer';
 @Component({
   selector: 'app-webplayer',
-  template: '<div [id]="rootId"></div>',
+  template: '<div [id]="rootId"></div><p>{{this.token}}</p>',
+    
+  
   styleUrls: ['./webplayer.component.scss']
 })
-export class WebplayerComponent implements OnChanges, AfterViewInit, OnDestroy {
+export class WebplayerComponent implements OnChanges, AfterViewInit, OnDestroy, OnInit {
 
+  @Input() token!:string;
 
   public rootId = 'rootId';
   constructor() { }
+
+  ngOnInit(){
+    console.log(this.token)
+  }
 
  ngOnChanges(changes: SimpleChanges) {
    this.render();
@@ -30,6 +38,6 @@ export class WebplayerComponent implements OnChanges, AfterViewInit, OnDestroy {
   private render(){
  
 
-    ReactDOM.render(React.createElement(SpotifyPlayer), document.getElementById(this.rootId));
+    ReactDOM.render(React.createElement(SpotifyPlayer, {TOKEN: this.token}), document.getElementById(this.rootId));
   }
 }

@@ -1,4 +1,4 @@
-<app-webplayer></app-webplayer>
+<app-webplayer [token]="room.roomToken"></app-webplayer>
 <div>
   <div *ngIf="!host; else elseBlock">
     <div class="col-md-6" style="background-color: lightgreen; color: black">
