@@ -5,7 +5,7 @@ import * as ReactDOM from 'react-dom';
 import SpotifyPlayer from './SpotifyPlayer';
 @Component({
   selector: 'app-webplayer',
-  template: '<div [id]="rootId"></div><p>{{this.token}}</p>',
+  template: '<div [id]="rootId"></div>',
     
   
   styleUrls: ['./webplayer.component.scss']

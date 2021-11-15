@@ -18,6 +18,8 @@ export class RoomService {
 
   createRoom(room: Room): Observable<Room> {
 
+    console.log(room)
+
     const headerOptions = new HttpHeaders();
 
     headerOptions.set('Content-Type', 'application/json')
