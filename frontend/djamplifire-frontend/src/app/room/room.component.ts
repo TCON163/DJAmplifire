@@ -1,8 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, UrlSegment } from '@angular/router';
 import { Room } from '../room';
 import { RoomService } from '../room.service';
 import { SpotifyService } from '../spotify.service';
+import { Song } from '../Song';
+import { Observable, interval } from 'rxjs';
+
 
 
 @Component({
@@ -10,15 +13,29 @@ import { SpotifyService } from '../spotify.service';
   templateUrl: './room.component.html',
   styleUrls: ['./room.component.scss']
 })
-export class RoomComponent implements OnInit {
+export class RoomComponent implements OnInit, OnChanges, AfterViewInit {
 
   host = false;
   room: Room = new Room();
 
+  currentSong!: Song ;
+
   DJ_TOKEN!: string;
 
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService, private spotifyService: SpotifyService) { }
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private spotifyService: SpotifyService) { 
+
+  }
+
+  ngOnChanges(changes: SimpleChanges):void {
+this.getDJCurrentTrack();
+
+  }
+
+  ngAfterViewInit(): void {
+  
+  }
+
 
   ngOnInit(): void {
 
@@ -90,18 +107,23 @@ export class RoomComponent implements OnInit {
 
       }
     })
+   setTimeout(()=> {
+     this.getDJCurrentTrack();
+   },500)   
+   
+    interval(30000).subscribe( x => {
+      this.getDJCurrentTrack();
+    })
 
     
   }
 
 
   getDJCurrentTrack(): void {
-    console.log(this.room.roomToken)
-    this.spotifyService.getCurrentlyPlayingTrack(this.room.roomToken).subscribe(data => {
-      console.log(data);
-    }, error => {
-      console.log(error);
-    })
+    
+    this.currentSong = this.spotifyService.getCurrentlyPlayingTrack(this.DJ_TOKEN)
+
+    console.log(this.currentSong)
   }
 
 }

@@ -1,15 +1,34 @@
 <app-webplayer [token]="room.roomToken"></app-webplayer>
-<div>
+<div class="bg-dark">
   <div *ngIf="!host; else elseBlock">
-    <div class="col-md-6" style="background-color: lightgreen; color: black">
-      Room : {{ room.roomTitle }}
+    <h1 class="text-center text-light">{{ room.roomTitle }}</h1>
+    <div
+      class="d-flex align-items-center justify-content-center"
+      style="height: 100vh"
+    >
+      <div class="card">
+        <div class="card-body">
+          <h2>{{ currentSong.name }}</h2>
+          <h3>{{ currentSong.artist }}</h3>
+          <p>{{ currentSong.album_name }}</p>
+        </div>
+      </div>
     </div>
   </div>
   <ng-template #elseBlock>
-    <div class="modal-body row">
-      <div class="col-md-6" style="background-color: darkgreen; color: white">
-        //DJ part of the room - Disc Jockey Side //Install DJ Component
-        <!--<dj></dj>???-->
+    <h1 class="text-center text-light">DJ {{ room.roomTitle }} DJ</h1>
+    <div
+      class="d-flex align-items-center justify-content-center"
+      style="height: 100vh"
+    >
+      <div>
+        <div class="card">
+          <div class="card-body">
+            <h2>{{ currentSong.name }}</h2>
+            <h3>{{ currentSong.artist }}</h3>
+            <p>{{ currentSong.album_name }}</p>
+          </div>
+        </div>
       </div>
     </div>
   </ng-template>
