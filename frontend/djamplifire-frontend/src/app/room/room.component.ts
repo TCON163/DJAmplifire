@@ -37,8 +37,19 @@ this.getDJCurrentTrack();
   ngAfterViewInit(): void {
   
   }
+  pause(): void {
+    console.log("paused")
+    this.spotifyService.djPauseSong(this.DJ_TOKEN)
+  }
+  play(): void {
 
-
+    console.log("played")
+    this.spotifyService.djPlaySong(this.DJ_TOKEN)
+  }
+  skip(): void {
+    console.log("skipped")
+    this.spotifyService.djSkipSong(this.DJ_TOKEN)
+  }
   ngOnInit(): void {
 
 
