@@ -127,6 +127,7 @@ this.getDJCurrentTrack();
 
    interval(5000).subscribe(x => {
      this.getGuestCurrentTrack();
+     this.getDJDevices();
    })
    
     interval(30000).subscribe( x => {
@@ -156,6 +157,13 @@ this.getDJCurrentTrack();
       }
 
     }
+  }
+
+
+  getDJDevices() {
+    this.spotifyService.getAllDevices(this.DJ_TOKEN).then(data => {
+      console.log(data)
+    })
   }
 
 }
