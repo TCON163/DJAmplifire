@@ -121,6 +121,8 @@ getAccessToken(code:string): Token {
   
   }
 
+  
+
 
   guestPlaysDJsong(token: string, s: string): void{
     const spot = new Spotify.default();
@@ -129,9 +131,22 @@ getAccessToken(code:string): Token {
     if(s !== undefined){
       spot.queue(s);
       spot.skipToNext();
+    
+      
     }
 
+    
+
    
+  }
+
+
+  getAllDevices(token:string) {
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+
+   
+    return spot.getMyDevices()
   }
 
 
