@@ -31,7 +31,7 @@ export class CreateRoomComponent implements OnInit {
 
   }
 
-  async ngOnInit(): Promise<void> {
+  ngOnInit(): void {
 
     this.route.queryParamMap.subscribe(params => {
 
@@ -52,12 +52,12 @@ export class CreateRoomComponent implements OnInit {
 
         
 
-      let x = await this.spotifyService.getAccessToken(this.code)
+      let x = this.spotifyService.getAccessToken(this.code)
+
+      
+      console.log(x)
 
       this.access_token = x.access_token
-
-      console.log(x)
-      console.log(this.access_token)
   }
 
  

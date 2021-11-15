@@ -37,7 +37,7 @@ export class SpotifyService {
   }
 
 
-  getAccessToken(code:string): Promise<Token> {
+  getAccessToken(code:string): Token {
     
       let body = "grant_type=authorization_code";
       body += "&code=" + encodeURI(code); 
@@ -48,7 +48,7 @@ export class SpotifyService {
       return this.callAuthorizationApi(body);
   }
 
-   async callAuthorizationApi(body:string): Promise<Token>{
+   callAuthorizationApi(body:string): Token{
 
     let deeds:any;
     let xhr = new XMLHttpRequest();
