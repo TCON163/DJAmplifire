@@ -6,6 +6,7 @@ import { Router, Params } from '@angular/router';
 import { Room } from "../room";
 import { HttpParams } from '@angular/common/http';
 import { SpotifyService } from '../spotify.service';
+import { getAxiosSpotifyInstance } from 'spotify-web-sdk';
 
 
 
@@ -20,6 +21,8 @@ export class CreateRoomComponent implements OnInit {
   loggedIn = false;
 
   room: Room = new Room();
+
+  code!: string;
   access_token!: string;
 
 
@@ -28,33 +31,38 @@ export class CreateRoomComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
-    this.route.fragment
-      .subscribe(params => {
-        if (params !== null && params.startsWith("")) {
-          this.loggedIn = true;
-          console.log(params)
+  async ngOnInit(): Promise<void> {
 
-          let list = params?.split('&');
-          list?.forEach((x) => {
-            if (x.startsWith("access_token")) {
-              let t = x.split("=");
-              this.access_token = t[1];
-            }
+    this.route.queryParamMap.subscribe(params => {
 
-            console.log(this.access_token);
-
-          })
-        }
-      })
+      if (params.get("code")!== null){
+        this.loggedIn = true;
+        this.code = params.get("code")
+        console.log(this.code)
 
 
+
+        
+      }
+      
+    })
+
+
+    
+
+        
+
+      let x = await this.spotifyService.getAccessToken(this.code)
+
+      this.access_token = x.access_token
+
+      console.log(x)
+      console.log(this.access_token)
   }
-
 
  
 
-  async onSubmit() {
+   onSubmit() {
 
     this.room.roomToken = this.access_token;
     this.roomService.createRoom(this.room).subscribe(data => {
@@ -72,6 +80,14 @@ export class CreateRoomComponent implements OnInit {
       })
     });
 
+
+
+  }
+
+
+  getAccess(code:string): void{
+
+    
 
 
   }
