@@ -8,6 +8,7 @@ import { Observable, interval } from 'rxjs';
 
 
 
+
 @Component({
   selector: 'app-room',
   templateUrl: './room.component.html',
@@ -19,6 +20,7 @@ export class RoomComponent implements OnInit, OnChanges, AfterViewInit {
   room: Room = new Room();
 
   currentSong!: Song ;
+  guestCurrentSong!: Song;
 
   DJ_TOKEN!: string;
 
@@ -109,7 +111,12 @@ this.getDJCurrentTrack();
     })
    setTimeout(()=> {
      this.getDJCurrentTrack();
+     this.getGuestCurrentTrack();
    },500)   
+
+   interval(5000).subscribe(x => {
+     this.getGuestCurrentTrack();
+   })
    
     interval(30000).subscribe( x => {
       this.getDJCurrentTrack();
@@ -124,6 +131,20 @@ this.getDJCurrentTrack();
     this.currentSong = this.spotifyService.getCurrentlyPlayingTrack(this.DJ_TOKEN)
 
     console.log(this.currentSong)
+  }
+
+  getGuestCurrentTrack(): void{
+    if (!this.host){
+
+      if (this.currentSong.song_id !== this.guestCurrentSong.song_id){
+
+        let x = ""
+        x += this.currentSong.song_id
+
+        this.spotifyService.guestPlaysDJsong(this.room.roomToken, x)
+      }
+
+    }
   }
 
 }

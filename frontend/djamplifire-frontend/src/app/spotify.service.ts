@@ -122,19 +122,14 @@ getAccessToken(code:string): Token {
   }
 
 
-  getClientCredentials(): void{
-// let body = new FormData;
-    
-//     body.append("grant_type", "client_credentials")
- 
-//     let headerOptions = new HttpHeaders();
+  guestPlaysDJsong(token: string, s: string): void{
+    const spot = new Spotify.default();
 
-//     headerOptions.set("Authorization","Basic " + btoa(this.client_id + ":" + this.client_secret) )
-//     headerOptions.set("Content-Type", "application/x-www-form-urlencoded")
-
-
-//     return this.http.post<Token>(this.tokenURL, body, {headers: headerOptions})
-
+    spot.setAccessToken(token);
+    if(s !== undefined){
+      spot.queue(s);
+      spot.skipToNext();
+    }
 
    
   }
