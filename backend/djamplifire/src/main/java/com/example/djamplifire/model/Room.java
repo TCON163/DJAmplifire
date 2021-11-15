@@ -19,7 +19,7 @@ public class Room {
     @Column
     private String roomTitle;
 
-    @Column
+    @Column(length = 1000)
     private String roomToken;
 
     @Column

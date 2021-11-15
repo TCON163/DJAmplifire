@@ -41,7 +41,8 @@ import { WebplayerComponent } from './webplayer/webplayer.component';
       { path: "", component: HomePageComponent },
       { path: 'join', component: JoinRoomComponent },
       { path: 'about-us', component: AboutUsComponent },
-      { path: 'room/:roomCode', component: RoomComponent }
+      { path: 'room/:roomCode', component: RoomComponent },
+      { path: 'room/:roomCode/:token', component: RoomComponent }
     ]),
     MdbCheckboxModule,
     ReactiveFormsModule,

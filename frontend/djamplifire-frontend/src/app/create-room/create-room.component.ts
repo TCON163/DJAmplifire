@@ -5,6 +5,9 @@ import { FormsModule } from '@angular/forms';
 import { Router, Params } from '@angular/router';
 import { Room } from "../room";
 import { HttpParams } from '@angular/common/http';
+import { SpotifyService } from '../spotify.service';
+import { getAxiosSpotifyInstance } from 'spotify-web-sdk';
+import { Token } from '../token';
 
 
 
@@ -19,68 +22,75 @@ export class CreateRoomComponent implements OnInit {
   loggedIn = false;
 
   room: Room = new Room();
-  access_token!: string;
+
+  code!: string;
+ 
+  token!: Token;
 
 
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService, private router: Router) {
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private router: Router, private spotifyService: SpotifyService) {
 
   }
 
-  ngOnInit(): void {
-    this.route.fragment
-      .subscribe(params => {
-        if (params !== null && params.startsWith("")) {
-          this.loggedIn = true;
-          console.log(params)
+    ngOnInit(): void {
 
-          let list = params?.split('&');
-          list?.forEach((x) => {
-            if (x.startsWith("access_token")) {
-              let t = x.split("=");
-              this.access_token = t[1];
-            }
-
-            console.log(this.access_token);
-
-          })
+    this.route.queryParamMap.subscribe(params => {
+      if (params.get("code")!== null){
+        this.loggedIn = true;
+        let c:string| null = params.get("code")
+        if (c != null){
+          this.code = c;
         }
-      })
+      }
+    })
+
+    let x: Token = this.spotifyService.getAccessToken(this.code)
+
+    setTimeout(()=>{
+      this.tokenEqualsX(x);
+      console.log(this.room.roomToken)
+    },1000)
+  }
+
+  tokenEqualsX(x:Token){
+    this.room.roomToken = x.access_token;
+  }
+
+   onSubmit() {
+
+  this.roomService.createRoom(this.room).subscribe(data => {
+    this.room.roomCode = data.roomCode;
+      }).add(() => {
+          let p: string = this.room.roomCode
+
+          this.router.navigate(['room', p], {
+                                                        queryParams: {
+                                                          host: true
+                                                      }
+                                                  })
+                    });
+
+
+
+    
 
 
   }
 
 
-  createRoom(): void {
+  getToken(): void{
 
-
-
-
-
+    console.log(this.token)
+    console.log(this.token.access_token);
 
 
   }
 
 
-  async onSubmit() {
 
-    this.room.roomToken = this.access_token;
-    this.roomService.createRoom(this.room).subscribe(data => {
-
-      this.room.roomCode = data.roomCode;
-
-
-    }).add(() => {
-      let p: string = this.room.roomCode
-
-      this.router.navigate(['room', p], {
-        queryParams: {
-          host: true
-        }
-      })
-    });
-
-
+  login(): void {
+    window.location.href = this.spotifyService.authSpotifyUrl
 
   }
 
