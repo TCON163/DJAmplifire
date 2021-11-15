@@ -14,7 +14,7 @@ MVPs:
 - As a User, I can join a room and become a guest
 - As a Guest or DJ, I can view the current song playing in the room.
 - As a Guest, I can listen to music
-- As a User, I can add the current song to one of my favorites.
+- As a Guest, I can add the current song to one of my favorites.
 - As a Guest, I can select what device I want to listen to the music on.
 - As a DJ, I can select what device I want to use to play music
 - As a DJ, I choose what song is playing (skip or change it)
