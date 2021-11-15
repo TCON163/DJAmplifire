@@ -44,6 +44,13 @@ export class RoomComponent implements OnInit {
     })
   }
 
+  playCurrentTrack(): void{
+    this.spotifyService.togglePlay().then(() => {
+      console.log("Toggled Play");
+    })
+    
+  }
+
 
   getDJCurrentTrack(): void {
     console.log(this.room.roomToken)
