@@ -6,7 +6,7 @@ import * as Spotify from 'spotify-web-api-js';
 
 import { Song } from './Song';
 import { Token} from "./token";
-
+//TODO: make method to do pause, play, skip
 
 @Injectable({
   providedIn: 'root'
@@ -148,8 +148,25 @@ getAccessToken(code:string): Token {
    
     return spot.getMyDevices()
   }
+  
+    djPauseSong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.pause();
+  }
 
+  djPlaySong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.play();
+  }
 
+  djSkipSong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.skipToNext();
+  }
+  
 
  
 

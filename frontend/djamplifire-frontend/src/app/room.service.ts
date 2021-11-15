@@ -3,10 +3,11 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Room } from "./room";
 
-@Injectable({
+@Injectable({  // This is where the service is exposed
   providedIn: 'root'
 })
-export class RoomService {
+
+export class RoomService { // Singleton object that exposes the ___________ functionality to the components provided. Good use cases include: API consumption, inter-component/module communication, and cross-cutting concerns.
   roomUrl: string = "http://localhost:8080/api/v1/rooms";
 
 
