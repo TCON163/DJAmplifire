@@ -1,62 +1,62 @@
 export class Room {
 
-    roomCode!: string;
+    _roomCode!: string;
 
-    guestCanPause!: boolean;
+    _guestCanPause!: boolean;
 
-    roomTitle!: string;
+    _roomTitle!: string;
 
-    roomToken!: string;
+    _roomToken!: string;
 
-    numberOfSkips!: number;
+    _numberOfSkips!: number;
 
-    // constructor() {
+    constructor() {
 
-    // }
+    }
 
-    // public get roomCode() {
-    //     return this._roomCode;
-    // }
+    public get roomCode() {
+        return this._roomCode;
+    }
 
-    // public get guestCanPause() {
-    //     return this._guestCanPause;
-    // }
+    public get guestCanPause() {
+        return this._guestCanPause;
+    }
 
-    // public get roomTitle() {
-    //     return this._roomTitle;
-    // }
+    public get roomTitle() {
+        return this._roomTitle;
+    }
 
-    // public get roomToken() {
-    //     return this._roomToken;
-    // }
+    public get roomToken() {
+        return this._roomToken;
+    }
 
-    // public get numberOfSkips() {
-    //     return this._numberOfSkips;
-    // }
+    public get numberOfSkips() {
+        return this._numberOfSkips;
+    }
 
-    // public set roomCode(theRoomCode: string) {
+    public set roomCode(theRoomCode: string) {
 
-    //     this._roomCode = theRoomCode;
-    // }
+        this._roomCode = theRoomCode;
+    }
 
-    // public set guestCanPause(theGuestPause: boolean) {
+    public set guestCanPause(theGuestPause: boolean) {
 
-    //     this._guestCanPause = theGuestPause;
-    // }
+        this._guestCanPause = theGuestPause;
+    }
 
-    // public set roomTitle(theRoomTitle: string) {
+    public set roomTitle(theRoomTitle: string) {
 
-    //     this._roomTitle = theRoomTitle;
-    // }
+        this._roomTitle = theRoomTitle;
+    }
 
-    // public set roomToken(theRoomToken: string) {
+    public set roomToken(theRoomToken: string) {
 
-    //     this._roomToken = theRoomToken;
-    // }
+        this._roomToken = theRoomToken;
+    }
 
-    // public set numberOfSkips(theNumberOfSkips: number) {
+    public set numberOfSkips(theNumberOfSkips: number) {
 
-    //     this._numberOfSkips = theNumberOfSkips;
-    // }
+        this._numberOfSkips = theNumberOfSkips;
+    }
 
 }

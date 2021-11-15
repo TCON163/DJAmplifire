@@ -7,6 +7,7 @@ import { Room } from "../room";
 import { HttpParams } from '@angular/common/http';
 import { SpotifyService } from '../spotify.service';
 import { getAxiosSpotifyInstance } from 'spotify-web-sdk';
+import { Token } from '../token';
 
 
 
@@ -24,6 +25,7 @@ export class CreateRoomComponent implements OnInit {
 
   code!: string;
   access_token!: string;
+  token!: Token;
 
 
 
@@ -31,14 +33,18 @@ export class CreateRoomComponent implements OnInit {
 
   }
 
-  ngOnInit(): void {
+    ngOnInit(): void {
 
     this.route.queryParamMap.subscribe(params => {
 
       if (params.get("code")!== null){
         this.loggedIn = true;
-        this.code = params.get("code")
-        console.log(this.code)
+        let c:string| null = params.get("code")
+        console.log(c)
+
+        if (c != null){
+          this.code = c;
+        }
 
 
 
@@ -47,24 +53,38 @@ export class CreateRoomComponent implements OnInit {
       
     })
 
+    let x: Token = this.spotifyService.getAccessToken(this.code)
 
+  
+
+
+    setTimeout(()=>{
+      this.tokenEqualsX(x);
+      console.log(this.room.roomToken)
+   
     
-
-        
-
-      let x = this.spotifyService.getAccessToken(this.code)
-
+    },1000)
+    
       
-      console.log(x)
+  }
 
-      this.access_token = x.access_token
+
+  tokenEqualsX(x:Token){
+    this.room.roomToken = x.access_token;
   }
 
  
 
    onSubmit() {
+    
+    
 
-    this.room.roomToken = this.access_token;
+   
+
+
+   console.log(this.room.roomToken)
+
+
     this.roomService.createRoom(this.room).subscribe(data => {
 
       this.room.roomCode = data.roomCode;
@@ -73,7 +93,7 @@ export class CreateRoomComponent implements OnInit {
     }).add(() => {
       let p: string = this.room.roomCode
 
-      this.router.navigate(['room', p], {
+      this.router.navigate(['room', p, this.room.roomToken], {
         queryParams: {
           host: true
         }
@@ -85,9 +105,10 @@ export class CreateRoomComponent implements OnInit {
   }
 
 
-  getAccess(code:string): void{
+  getToken(): void{
 
-    
+    console.log(this.token)
+    console.log(this.token.access_token);
 
 
   }

@@ -22,7 +22,7 @@ export class RoomComponent implements OnInit {
     this.route.url
       .subscribe(roomCode => {
         roomCode.forEach((value: UrlSegment) => {
-          if (value.toString() !== "room") {
+          if (value.toString() !== "room" && value.toString().length < 7) {
             this.room.roomCode = value.toString();
             console.log(this.room.roomCode)
             this.roomService.getRoom(this.room).subscribe(data => {
@@ -30,12 +30,21 @@ export class RoomComponent implements OnInit {
               this.room.numberOfSkips = data.numberOfSkips;
               this.room.roomCode = data.roomCode;
               this.room.roomTitle = data.roomTitle;
-              this.room.roomToken = data.roomToken;
+              
+              
             })
+          }
+          else if (value.toString().length > 7 ){
+            this.room.roomToken = value.toString();
+            console.log(this.room.roomToken)
           }
         }
         );
       })
+
+      setTimeout(()=>{
+        console.log(this.room.roomToken)
+      },1000)
     this.route.queryParamMap.subscribe(param => {
       if (param.get("host") === "true") {
         this.host = true;

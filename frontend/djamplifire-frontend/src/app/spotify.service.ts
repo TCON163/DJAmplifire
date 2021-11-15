@@ -37,7 +37,7 @@ export class SpotifyService {
   }
 
 
-  getAccessToken(code:string): Token {
+getAccessToken(code:string): Token {
     
       let body = "grant_type=authorization_code";
       body += "&code=" + encodeURI(code); 
@@ -45,12 +45,12 @@ export class SpotifyService {
       body += "&client_id=" + encodeURI(this.client_id);
       body += "&client_secret=" + encodeURI(this.client_secret);
 
-      return this.callAuthorizationApi(body);
+      return  this.callAuthorizationApi(body);
   }
 
    callAuthorizationApi(body:string): Token{
 
-    let deeds:any;
+    
     let xhr = new XMLHttpRequest();
     xhr.open("POST", this.tokenURL);
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -63,26 +63,43 @@ export class SpotifyService {
       if (xhr.status == 200){
         var data = JSON.parse(xhr.responseText)
         
-        if ( data.access_token != undefined){
-          token.access_token = data.access_token;
-          token.expires_in = 3600;
-          token.refresh_token = data.refresh_token;
-          token.token_type = data.token_type;
-          token.scope = data.scope;
-
-        }
+          if ( data.access_token !== ""){
+            token.access_token = data.access_token;
+            token.expires_in = 3600;
+            token.refresh_token = data.refresh_token;
+            token.token_type = data.token_type;
+            token.scope = data.scope;
+  
+          }
+     
+        
         
       }
       
     }
 
+    console.log(token)
+
+    let t:boolean = true;
+
+    setTimeout(()=>{
+      console.log(token);
+      console.log(token.access_token)
+      t = false
+    },10000)
 
 
 
-  console.log(token);
-    
 
     return token;
+
+
+
+
+  
+    
+
+    
 
    
     
