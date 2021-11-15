@@ -3,6 +3,7 @@
   <div *ngIf="!host; else elseBlock">
     <div class="col-md-6" style="background-color: lightgreen; color: black">
       Room : {{ room.roomTitle }}
+      <div sytle="float: left;">Left</div sytle="float: right;"><div>Right</div><div sytle="float: center;">Center</div>
     </div>
   </div>
   <ng-template #elseBlock>
@@ -10,6 +11,7 @@
       <div class="col-md-6" style="background-color: darkgreen; color: white">
         //DJ part of the room - Disc Jockey Side //Install DJ Component
         <!--<dj></dj>???-->
+        <div sytle="float: left;">Left</div sytle="float: right;"><div>Right</div><div sytle="float: center;">Center</div>
       </div>
     </div>
   </ng-template>
