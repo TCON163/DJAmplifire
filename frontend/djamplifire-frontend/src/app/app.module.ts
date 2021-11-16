@@ -19,7 +19,7 @@ import { RoomService } from './room.service';
 import { WebplayerComponent } from './webplayer/webplayer.component';
 
 
-
+// The Angular module is a cohesive block of code that is dedicated to a particular domain, workflow, or feature. They can export functionality making it available to other modules, and can import exposed functionality from other modules. Meta-Data properties include: imports, providers, declarations, exports, and bootstrap
 @NgModule({
   declarations: [
     AppComponent,

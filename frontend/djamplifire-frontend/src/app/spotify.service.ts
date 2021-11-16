@@ -6,7 +6,7 @@ import * as Spotify from 'spotify-web-api-js';
 
 import { Song } from './Song';
 import { Token} from "./token";
-//TODO: make method to do pause, play, skip
+//A service is an angular class, instantiated as a Singleton and shared between modules and components.
 
 @Injectable({
   providedIn: 'root'
@@ -148,7 +148,7 @@ getAccessToken(code:string): Token {
    
     return spot.getMyDevices()
   }
-  
+
     djPauseSong(token: string): void{
     const spot = new Spotify.default();
     spot.setAccessToken(token);
