@@ -1,4 +1,5 @@
-<app-webplayer [token]="room.roomToken"></app-webplayer> <!-- Example of Server-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document --><!--  -->
+<app-webplayer [token]="room.roomToken"></app-webplayer>
+<!-- Example of Server-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document --><!--  -->
 <div>
   <div *ngIf="!host; else elseBlock" class="bg-dark">
     <h1 class="text-center text-light">{{ room.roomTitle }}</h1>
@@ -12,12 +13,6 @@
           <h3>{{ currentSong.artist }}</h3>
           <p>{{ currentSong.album_name }}</p>
           <!-- TODO: Pause, Play, Skip Buttons -->
-          <label>Pause</label><br>
-          <button>||</button><br>
-          <label>Play</label><br>
-          <button>GO</button><br>
-          <label>Skip</label><br>
-          <button>NEXT</button><br>
         </div>
       </div>
     </div>
@@ -36,12 +31,16 @@
               <h3>{{ currentSong.artist }}</h3>
               <p>{{ currentSong.album_name }}</p>
               <!-- TODO: Pause, Play, Skip Buttons -->
-              <label>REMOTE</label><br><br>
-              <button class="btn btn-primary" (click)="pause()">||</button><br><br>
+              <label>REMOTE</label><br /><br />
+              <button class="btn btn-primary" (click)="pause()">||</button
+              ><br /><br />
               <!-- <label>Play</label><br> -->
-              <button class="btn btn-warn" (click)="play()">play</button><br><br>
+              <button class="btn btn-warn" (click)="play()">play</button
+              ><br /><br />
               <!-- <label>Skip</label><br> -->
-              <button class="btn btn-primary mat-raised-btn" (click)="skip()">>></button><br><br>
+              <button class="btn btn-primary mat-raised-btn" (click)="skip()">
+                >></button
+              ><br /><br />
             </div>
           </div>
         </div>

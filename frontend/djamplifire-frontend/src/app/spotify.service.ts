@@ -159,6 +159,8 @@ getAccessToken(code:string): Token {
     const spot = new Spotify.default();
     spot.setAccessToken(token);
     spot.play();
+
+    
   }
 
   djSkipSong(token: string): void{
