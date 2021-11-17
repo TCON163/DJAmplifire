@@ -45,6 +45,29 @@
               <button class="btn btn-primary mat-raised-btn" (click)="skip()">
                 >></button
               ><br /><br />
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th scope="col">Device Name</th>
+                    <th scope="col">Device is active?</th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="true">
+                  <tr *ngFor="let dev of deviceList;">
+                    <td>{{dev.name}}</td>
+                    <td>{{dev.is_active}}</td>
+                  </tr>
+                </tbody>
+              </table>
+              <button 
+              *ngFor="let dev of deviceList"
+              class="btn btn-primary" 
+              (click)="setPlay(dev.id)">
+              {{dev.name}}
+              </button>
+
+
             </div>
           </div>
         </div>

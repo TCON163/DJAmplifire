@@ -18,7 +18,7 @@ export class RoomComponent implements OnInit, OnChanges, AfterViewInit {
 
   host = false;
   room: Room = new Room();
-
+  devLoc!: string[];
   currentSong!: Song ;
   guestCurrentSong!: Song;
   deviceList!: Device[];
@@ -49,6 +49,10 @@ this.getDJCurrentTrack();
   skip(): void {
     console.log("skipped")
     this.spotifyService.djSkipSong(this.DJ_TOKEN)
+  }
+
+  setPlay(id: string): void{
+    this.spotifyService.djSetDevice(this.DJ_TOKEN, id)
   }
   ngOnInit(): void {
 
@@ -140,6 +144,12 @@ this.getDJCurrentTrack();
 
   getDeviceList(): void {
     this.deviceList = this.spotifyService.djGetDevices(this.DJ_TOKEN)
+    this.devLoc = [];
+    this.deviceList.forEach(element => {
+      this.devLoc.push(element.id)
+    });
+
+    console.log('made it')
 
   }
   getDJCurrentTrack(): void {
