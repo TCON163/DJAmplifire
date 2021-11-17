@@ -121,16 +121,6 @@ getAccessToken(code:string): Token {
   
   }
 
-<<<<<<< HEAD
-  djPlaySong(token: string): void {
-    const spot = new Spotify.default();
-    spot.setAccessToken(token);
-    spot.play();
-  }
-=======
-  
-
->>>>>>> 8158431a860c8aaad56bc1d7c28d0e6c55cda117
 
 
   djSetDevice(token: string, id: string): void {
@@ -139,6 +129,8 @@ getAccessToken(code:string): Token {
     let ids: string[] = [id]
     spot.transferMyPlayback(ids);
   }
+  
+
 
   djGetDevices(token: string): Device[] {
     const spot = new Spotify.default();
