@@ -47,7 +47,9 @@ spot.getMyCurrentPlayingTrack().then( data => {
   });
   s.artist = artistString;
   s.name = x?.name;
-  s.song_id= x?.id;
+  let song = "";
+  song += x?.id;
+  s.song_id = song;
   s.duration = x?.duration_ms;
   s.progress = data.progress_ms;
 }).catch(err => {

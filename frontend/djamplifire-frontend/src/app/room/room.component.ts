@@ -159,8 +159,8 @@ this.getDJCurrentTrack();
 
   getGuestCurrentTrack(): void{
     if (!this.host){
-
-      if (this.currentSong.song_id !== this.guestCurrentSong.song_id){
+      
+      if ( this.guestCurrentSong.song_id === undefined|| this.currentSong.song_id !== this.guestCurrentSong.song_id){
 
         let x = ""
         x += this.currentSong.song_id
@@ -179,7 +179,7 @@ this.getDJCurrentTrack();
   }
 
   getDJDevices() {
-    this.spotifyService.getAllDevices(this.DJ_TOKEN).then(data => {
+    this.spotifyService.getAllDevices(this.room.roomToken).then(data => {
       console.log(data)
     })
   }
