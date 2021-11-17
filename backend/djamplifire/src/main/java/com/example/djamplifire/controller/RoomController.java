@@ -8,43 +8,49 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-
+@CrossOrigin
 @RestController
 @RequestMapping("/api/v1")
 public class RoomController {
 
-    @Autowired
+
     private RoomService roomService;
 
+    @Autowired
+    public RoomController(RoomService service){
+        this.roomService = service;
+    }
+
     //get all rooms
-    @CrossOrigin
+    @CrossOrigin("http://127.0.0.1:4200")
     @GetMapping("/rooms")
     public List<Room> getAllRooms() {
         return roomService.getAllRooms();
 
     }
-    @CrossOrigin
+
+    @CrossOrigin("http://127.0.0.1:4200")
     @GetMapping("/rooms/{roomCode}")
     public Room getRoomByKey(@PathVariable("roomCode") String roomCode) {
         return roomService.getRoomByCode(roomCode);
     }
 
     //create a room
-    @CrossOrigin(originPatterns = {"http://127.0.0.1:4200"})
+    @CrossOrigin("http://127.0.0.1:4200")
     @PostMapping("/rooms")
     public Room createRoom(@RequestBody Room room){
         return roomService.createRoom(room);
     }
 
     //delete room
-    @CrossOrigin
+    @CrossOrigin("http://127.0.0.1:4200")
     @DeleteMapping("rooms/{roomCode}")
     public void deleteRoom(@PathVariable("roomCode") String roomCode){
         this.roomService.deleteRoom(roomCode);
     }
 
     //update room
-    @CrossOrigin
+    @CrossOrigin("http://127.0.0.1:4200")
     @PutMapping("/rooms/{roomCode}")
     public Room updateRoom(@RequestBody Room room, @PathVariable("roomCode") String roomCode){
 

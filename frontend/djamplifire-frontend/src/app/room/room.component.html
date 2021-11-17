@@ -13,6 +13,7 @@
           <h2>{{ currentSong.name }}</h2>
           <h3>{{ currentSong.artist }}</h3>
           <p>{{ currentSong.album_name }}</p>
+          
         </div>
       </div>
     </div>
@@ -31,12 +32,16 @@
               <h3>{{ currentSong.artist }}</h3>
               <p>{{ currentSong.album_name }}</p>
               <!-- TODO: Pause, Play, Skip Buttons -->
-              <label>REMOTE</label><br><br>
-              <button class="btn btn-primary" (click)="pause()">||</button><br><br>
+              <label>REMOTE</label><br /><br />
+              <button class="btn btn-primary" (click)="pause()">||</button
+              ><br /><br />
               <!-- <label>Play</label><br> -->
-              <button class="btn btn-warn" (click)="play()">play</button><br><br>
+              <button class="btn btn-warn" (click)="play()">play</button
+              ><br /><br />
               <!-- <label>Skip</label><br> -->
-              <button class="btn btn-primary mat-raised-btn" (click)="skip()">>></button><br><br>
+              <button class="btn btn-primary mat-raised-btn" (click)="skip()">
+                >></button
+              ><br /><br />
             </div>
           </div>
         </div>

@@ -8,7 +8,8 @@ import { Room } from "./room";
 })
 
 export class RoomService { // Singleton object that exposes the ___________ functionality to the components provided. Good use cases include: API consumption, inter-component/module communication, and cross-cutting concerns.
-  roomUrl: string = "http://localhost:8080/api/v1/rooms";
+  roomUrl: string = "http://djamplifire-env.eba-89tdwhmi.us-east-2.elasticbeanstalk.com/api/v1/rooms";
+  // roomUrl: string = "http://localhost:8080/api/v1/rooms";
 
 
   constructor(private http: HttpClient) { }
@@ -23,7 +24,12 @@ export class RoomService { // Singleton object that exposes the ___________ func
 
     const headerOptions = new HttpHeaders();
 
+    
+    // headerOptions.set("Access-Control-Allow-Origin", "http://127.0.0.1:4200")
+    // headerOptions.set("Access-Control-Allow-Methods", "POST")
+    // headerOptions.set("Access-Control-Allow-Headers", "Content-Type")
     headerOptions.set('Content-Type', 'application/json')
+    // headerOptions.set("Origin","http://127.0.0.1:4200")
 
     return this.http.post<Room>(this.roomUrl, room, { headers: headerOptions });
 
