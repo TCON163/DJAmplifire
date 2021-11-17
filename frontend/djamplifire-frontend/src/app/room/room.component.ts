@@ -146,7 +146,7 @@ this.getDJCurrentTrack();
     this.deviceList = this.spotifyService.djGetDevices(this.DJ_TOKEN)
     this.devLoc = [];
     this.deviceList.forEach(element => {
-      this.devLoc.push(element.id)
+      this.devLoc.push(""+element.id)
     });
 
     console.log('made it')

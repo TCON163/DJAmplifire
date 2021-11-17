@@ -6,7 +6,7 @@ export class Device {
     //   "name": "Loudest speaker",
     //   "type": "computer",
     //   "volume_percent": 59
-    id! : string;
+    id! : string | null;
     is_active!: boolean;
     is_restricted!: boolean;
     name!: string;

@@ -57,17 +57,15 @@
                   <tr *ngFor="let dev of deviceList;">
                     <td>{{dev.name}}</td>
                     <td>{{dev.is_active}}</td>
+                    <td><button
+                    class="btn btn-primary" 
+                    (click)="setPlay(''+dev.id)">
+                    Switch to this device
+                    </button></td>
                   </tr>
                 </tbody>
               </table>
-              <button 
-              *ngFor="let dev of deviceList"
-              class="btn btn-primary" 
-              (click)="setPlay(dev.id)">
-              {{dev.name}}
-              </button>
-
-
+              
             </div>
           </div>
         </div>
