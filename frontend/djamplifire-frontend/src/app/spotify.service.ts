@@ -6,7 +6,7 @@ import * as Spotify from 'spotify-web-api-js';
 import { Device } from './device';
 import { Song } from './Song';
 import { Token} from "./token";
-
+//A service is an angular class, instantiated as a Singleton and shared between modules and components.
 
 @Injectable({
   providedIn: 'root'
@@ -121,11 +121,16 @@ getAccessToken(code:string): Token {
   
   }
 
+<<<<<<< HEAD
   djPlaySong(token: string): void {
     const spot = new Spotify.default();
     spot.setAccessToken(token);
     spot.play();
   }
+=======
+  
+
+>>>>>>> 8158431a860c8aaad56bc1d7c28d0e6c55cda117
 
 
   djSetDevice(token: string, id: string): void {
@@ -163,12 +168,44 @@ getAccessToken(code:string): Token {
     if(s !== undefined){
       spot.queue(s);
       spot.skipToNext();
+    
+      
     }
+
+    
 
    
   }
 
 
+  getAllDevices(token:string) {
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+
+   
+    return spot.getMyDevices()
+  }
+
+    djPauseSong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.pause();
+  }
+
+  djPlaySong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.play();
+
+    
+  }
+
+  djSkipSong(token: string): void{
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.skipToNext();
+  }
+  
 
  
 

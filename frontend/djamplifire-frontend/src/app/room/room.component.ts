@@ -37,8 +37,19 @@ this.getDJCurrentTrack();
   ngAfterViewInit(): void {
   
   }
+  pause(): void {
+    console.log("paused")
+    this.spotifyService.djPauseSong(this.DJ_TOKEN)
+  }
+  play(): void {
 
-
+    console.log("played")
+    this.spotifyService.djPlaySong(this.DJ_TOKEN)
+  }
+  skip(): void {
+    console.log("skipped")
+    this.spotifyService.djSkipSong(this.DJ_TOKEN)
+  }
   ngOnInit(): void {
 
 
@@ -116,6 +127,7 @@ this.getDJCurrentTrack();
 
    interval(5000).subscribe(x => {
      this.getGuestCurrentTrack();
+     this.getDJDevices();
    })
    
     interval(30000).subscribe( x => {
@@ -149,6 +161,13 @@ this.getDJCurrentTrack();
       }
 
     }
+  }
+
+
+  getDJDevices() {
+    this.spotifyService.getAllDevices(this.DJ_TOKEN).then(data => {
+      console.log(data)
+    })
   }
 
 }
