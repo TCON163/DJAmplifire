@@ -126,10 +126,12 @@ this.getDJCurrentTrack();
     })
    setTimeout(()=> {
      this.getDJCurrentTrack();
-     
+     this.setGuestSong();
+     this.getGuestCurrentTrack();
    },500)   
 
    interval(5000).subscribe(x => {
+     this.setGuestSong();
      this.getGuestCurrentTrack();
      this.getDJDevices();
      this.getDeviceList();
@@ -173,7 +175,9 @@ this.getDJCurrentTrack();
 
     }
   }
-
+  setGuestSong() {
+    this.guestCurrentSong = this.spotifyService.getCurrentlyPlayingTrack(this.room.roomToken)
+  }
 
   getDJDevices() {
     this.spotifyService.getAllDevices(this.room.roomToken).then(data => {
