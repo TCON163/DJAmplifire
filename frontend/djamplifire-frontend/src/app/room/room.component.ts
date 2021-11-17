@@ -132,11 +132,12 @@ this.getDJCurrentTrack();
    interval(5000).subscribe(x => {
      this.getGuestCurrentTrack();
      this.getDJDevices();
+     this.getDeviceList();
    })
    
     interval(30000).subscribe( x => {
       this.getDJCurrentTrack();
-      this.getDeviceList();
+      
     })
 
     
