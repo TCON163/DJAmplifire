@@ -8,7 +8,7 @@ import com.example.djamplifire.repository.RoomRespository;
  *
  * @author Chris Oh
  * @version 1.0
- * @since 11/2/2021
+ * @since 202111/2/
  */
 
 public class RoomKeyGenerator {

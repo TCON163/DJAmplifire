@@ -5,7 +5,7 @@ import { RoomService } from '../room.service';
 import { SpotifyService } from '../spotify.service';
 import { Song } from '../Song';
 import { Observable, interval } from 'rxjs';
-
+import { Device } from '../device';
 
 
 
@@ -21,7 +21,7 @@ export class RoomComponent implements OnInit, OnChanges, AfterViewInit {
 
   currentSong!: Song ;
   guestCurrentSong!: Song;
-
+  deviceList!: Device[];
   DJ_TOKEN!: string;
 
 
@@ -120,12 +120,16 @@ this.getDJCurrentTrack();
    
     interval(30000).subscribe( x => {
       this.getDJCurrentTrack();
+      this.getDeviceList();
     })
 
     
   }
 
+  getDeviceList(): void {
+    this.deviceList = this.spotifyService.djGetDevices(this.DJ_TOKEN)
 
+  }
   getDJCurrentTrack(): void {
     
     this.currentSong = this.spotifyService.getCurrentlyPlayingTrack(this.DJ_TOKEN)

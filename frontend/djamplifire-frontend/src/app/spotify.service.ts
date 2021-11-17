@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import * as Spotify from 'spotify-web-api-js';
-
+import { Device } from './device';
 import { Song } from './Song';
 import { Token} from "./token";
 
@@ -121,7 +121,41 @@ getAccessToken(code:string): Token {
   
   }
 
+  djPlaySong(token: string): void {
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.play();
+  }
 
+
+  djSetDevice(token: string, id: string): void {
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    let ids: string[] = [id]
+    spot.transferMyPlayback(ids);
+  }
+
+  djGetDevices(token: string): Device[] {
+    const spot = new Spotify.default();
+    let devices: Device[] = [];
+    spot.setAccessToken(token);
+    spot.getMyDevices().then(data => {
+     data.devices.forEach (dev => {
+        let device = new Device();
+        device.id = dev.id;
+        device.is_active = dev.is_active;
+        device.is_restricted = dev.is_restricted;
+        device.name = dev.name;
+        device.type = dev.type;
+        device.volume_percent = dev.volume_percent;
+        devices.push(device);
+     })
+    }).catch(err => {
+      console.log(err);
+    });
+    return devices;
+  }
+  
   guestPlaysDJsong(token: string, s: string): void{
     const spot = new Spotify.default();
 
