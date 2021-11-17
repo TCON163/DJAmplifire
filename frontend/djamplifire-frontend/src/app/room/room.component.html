@@ -1,4 +1,5 @@
-<app-webplayer [token]="room.roomToken"></app-webplayer> <!-- Example of Client-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document -->
+<app-webplayer [token]="room.roomToken"></app-webplayer>
+<!-- Example of Client-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document -->
 
 <!-- The application can be made into a Server-side-Rendered application by using the "ng add @nguniversal/express-engine", then run it.. "ng run ssr:serve-ssr" The primary benefit of altering to a server side is for Search Engine Optimization-->
 <div>
@@ -13,11 +14,29 @@
           <h2>{{ currentSong.name }}</h2>
           <h3>{{ currentSong.artist }}</h3>
           <p>{{ currentSong.album_name }}</p>
-
-      
-    
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Device Name</th>
+                <th scope="col">Device is active?</th>
+              </tr>
+            </thead>
+            <tbody *ngIf="true">
+              <tr *ngFor="let dev of deviceList">
+                <td>{{ dev.name }}</td>
+                <td>{{ dev.is_active }}</td>
+                <td>
+                  <button
+                    class="btn btn-primary"
+                    (click)="setPlay('' + dev.id)"
+                  >
+                    Switch to this device
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
         </div>
-
       </div>
     </div>
   </div>
@@ -54,18 +73,20 @@
                   </tr>
                 </thead>
                 <tbody *ngIf="true">
-                  <tr *ngFor="let dev of deviceList;">
-                    <td>{{dev.name}}</td>
-                    <td>{{dev.is_active}}</td>
-                    <td><button
-                    class="btn btn-primary" 
-                    (click)="setPlay(''+dev.id)">
-                    Switch to this device
-                    </button></td>
+                  <tr *ngFor="let dev of deviceList">
+                    <td>{{ dev.name }}</td>
+                    <td>{{ dev.is_active }}</td>
+                    <td>
+                      <button
+                        class="btn btn-primary"
+                        (click)="setPlay('' + dev.id)"
+                      >
+                        Switch to this device
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
-              
             </div>
           </div>
         </div>
