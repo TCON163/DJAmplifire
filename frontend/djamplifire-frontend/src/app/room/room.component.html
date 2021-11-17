@@ -1,4 +1,6 @@
-<app-webplayer [token]="room.roomToken"></app-webplayer> <!-- Example of Server-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document --><!--  -->
+<app-webplayer [token]="room.roomToken"></app-webplayer> <!-- Example of Client-side rendering... making a call to an API as opposed to the MVC pattern delivering an entire HTML document -->
+
+<!-- The application can be made into a Server-side-Rendered application by using the "ng add @nguniversal/express-engine", then run it.. "ng run ssr:serve-ssr" The primary benefit of altering to a server side is for Search Engine Optimization-->
 <div>
   <div *ngIf="!host; else elseBlock" class="bg-dark">
     <h1 class="text-center text-light">{{ room.roomTitle }}</h1>
