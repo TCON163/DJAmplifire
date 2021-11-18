@@ -145,6 +145,12 @@ this.getDJCurrentTrack();
     
   }
 
+  test(): void{
+    console.log("before Method")
+    this.spotifyService.addQueue(this.DJ_TOKEN)
+    console.log("after method")
+  }
+
   getDeviceList(): void {
     this.deviceList = this.spotifyService.djGetDevices(this.DJ_TOKEN)
     console.log('made it')
@@ -162,7 +168,7 @@ this.getDJCurrentTrack();
       
       if ( this.guestCurrentSong.song_id === undefined|| this.currentSong.song_id !== this.guestCurrentSong.song_id){
 
-        let x = ""
+        let x = "spotify:track:"
         x += this.currentSong.song_id
 
         this.spotifyService.guestPlaysDJsong(this.room.roomToken, x)

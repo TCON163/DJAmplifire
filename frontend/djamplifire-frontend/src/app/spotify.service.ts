@@ -39,6 +39,7 @@ spot.setAccessToken(token);
 
 spot.getMyCurrentPlayingTrack().then( data => {
   console.log(data);
+  
   let x = data.item;
   s.album_name = x?.album.name;
   let artistString = "";
@@ -52,6 +53,7 @@ spot.getMyCurrentPlayingTrack().then( data => {
   s.song_id = song;
   s.duration = x?.duration_ms;
   s.progress = data.progress_ms;
+  
 }).catch(err => {
   console.log(err)
 })
@@ -200,7 +202,14 @@ getAccessToken(code:string): Token {
     spot.skipToNext();
   }
   
+  // TEST METHOD DO NOT KEEP IN
+  addQueue(token: string): void{
+    const uri = "spotify:track:4iV5W9uYEdYUVa79Axb7Rh";
+    const spot = new Spotify.default();
+    spot.setAccessToken(token);
+    spot.queue(uri);
 
+  }
  
 
 
