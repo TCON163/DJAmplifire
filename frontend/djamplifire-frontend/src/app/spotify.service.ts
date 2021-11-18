@@ -51,6 +51,9 @@ spot.getMyCurrentPlayingTrack().then( data => {
   let song = "";
   song += x?.id;
   s.song_id = song;
+  let newSongUrl = "";
+  newSongUrl +=x?.uri;
+  s.song_uri = newSongUrl;
   s.duration = x?.duration_ms;
   s.progress = data.progress_ms;
   
@@ -162,7 +165,7 @@ getAccessToken(code:string): Token {
 
     spot.setAccessToken(token);
     if(s !== undefined){
-      spot.queue(s);
+      spot.queue
       spot.skipToNext();
     
       

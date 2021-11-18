@@ -54,6 +54,9 @@ this.getDJCurrentTrack();
   setPlay(id: string): void{
     this.spotifyService.djSetDevice(this.DJ_TOKEN, id)
   }
+  setGuestPlay(id: string): void{
+    this.spotifyService.djSetDevice(this.room.roomToken, id)
+  }
   ngOnInit(): void {
 
 
@@ -128,13 +131,16 @@ this.getDJCurrentTrack();
      this.getDJCurrentTrack();
      this.setGuestSong();
      this.getGuestCurrentTrack();
+     this.getDeviceList();
+     this.getGuestDevices
    },500)   
 
    interval(5000).subscribe(x => {
      this.setGuestSong();
      this.getGuestCurrentTrack();
-     this.getDJDevices();
+    
      this.getDeviceList();
+     this.getGuestDevices();
    })
    
     interval(30000).subscribe( x => {
@@ -166,12 +172,12 @@ this.getDJCurrentTrack();
   getGuestCurrentTrack(): void{
     if (!this.host){
       
-      if ( this.guestCurrentSong.song_id === undefined|| this.currentSong.song_id !== this.guestCurrentSong.song_id){
+      if ( this.guestCurrentSong.song_uri === this.currentSong.song_uri){
 
         let x = "spotify:track:"
         x += this.currentSong.song_id
 
-        this.spotifyService.guestPlaysDJsong(this.room.roomToken, x)
+        this.spotifyService.guestPlaysDJsong(this.room.roomToken, this.currentSong.song_uri)
       }
 
     }

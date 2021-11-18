@@ -22,13 +22,13 @@
               </tr>
             </thead>
             <tbody *ngIf="true">
-              <tr *ngFor="let dev of gDevList">
-                <td>{{ dev.name }}</td>
-                <td>{{ dev.is_active }}</td>
+              <tr *ngFor="let gDev of gDevList">
+                <td>{{ gDev.name }}</td>
+                <td>{{ gDev.is_active }}</td>
                 <td>
                   <button
                     class="btn btn-primary"
-                    (click)="setPlay('' + dev.id)"
+                    (click)="setGuestPlay('' + gDev.id)"
                   >
                     Switch to this device
                   </button>
