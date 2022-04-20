@@ -22,35 +22,35 @@ public class RoomController {
     }
 
     //get all rooms
-    @CrossOrigin("http://127.0.0.1:4200")
+    @CrossOrigin("https://dj.tcon.app")
     @GetMapping("/rooms")
     public List<Room> getAllRooms() {
         return roomService.getAllRooms();
 
     }
 
-    @CrossOrigin("http://127.0.0.1:4200")
+    @CrossOrigin("https://dj.tcon.app")
     @GetMapping("/rooms/{roomCode}")
     public Room getRoomByKey(@PathVariable("roomCode") String roomCode) {
         return roomService.getRoomByCode(roomCode);
     }
 
     //create a room
-    @CrossOrigin("http://127.0.0.1:4200")
+    @CrossOrigin("https://dj.tcon.app")
     @PostMapping("/rooms")
     public Room createRoom(@RequestBody Room room){
         return roomService.createRoom(room);
     }
 
     //delete room
-    @CrossOrigin("http://127.0.0.1:4200")
+    @CrossOrigin("https://dj.tcon.app")
     @DeleteMapping("rooms/{roomCode}")
     public void deleteRoom(@PathVariable("roomCode") String roomCode){
         this.roomService.deleteRoom(roomCode);
     }
 
     //update room
-    @CrossOrigin("http://127.0.0.1:4200")
+    @CrossOrigin("https://dj.tcon.app")
     @PutMapping("/rooms/{roomCode}")
     public Room updateRoom(@RequestBody Room room, @PathVariable("roomCode") String roomCode){
 

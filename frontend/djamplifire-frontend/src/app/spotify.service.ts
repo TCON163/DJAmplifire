@@ -15,18 +15,18 @@ export class SpotifyService {
   client_id = "5a82eddfce2b46be8e7ec5b826a7ae51"
   client_secret = "482c204bfe874ce8be820eb435e3a724"
 
-  joinAuthSpotifyURL = "https://accounts.spotify.com/authorize?response_type=code&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&redirect_uri=http://127.0.0.1:4200/join&scope=user-read-currently-playing%20ugc-image-upload%20playlist-modify-private%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state%20playlist-read-collaborative%20user-read-private%20user-library-modify%20user-library-read%20user-read-playback-position%20user-read-recently-played%20user-top-read%20user-read-email%20playlist-modify-public%20streaming&show_dialog=true"
-  authSpotifyUrl = "https://accounts.spotify.com/authorize?response_type=code&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&redirect_uri=http://127.0.0.1:4200/create-a-room&scope=user-read-currently-playing%20ugc-image-upload%20playlist-modify-private%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state%20playlist-read-collaborative%20user-read-private%20user-library-modify%20user-library-read%20user-read-playback-position%20user-read-recently-played%20user-top-read%20user-read-email%20playlist-modify-public%20streaming&show_dialog=true"
+  joinAuthSpotifyURL = "https://accounts.spotify.com/authorize?response_type=code&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&redirect_uri=https://dj.tcon.app/join&scope=user-read-currently-playing%20ugc-image-upload%20playlist-modify-private%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state%20playlist-read-collaborative%20user-read-private%20user-library-modify%20user-library-read%20user-read-playback-position%20user-read-recently-played%20user-top-read%20user-read-email%20playlist-modify-public%20streaming&show_dialog=true"
+  authSpotifyUrl = "https://accounts.spotify.com/authorize?response_type=code&client_id=5a82eddfce2b46be8e7ec5b826a7ae51&redirect_uri=https://dj.tcon.app/create-a-room&scope=user-read-currently-playing%20ugc-image-upload%20playlist-modify-private%20playlist-read-private%20user-read-playback-state%20user-modify-playback-state%20playlist-read-collaborative%20user-read-private%20user-library-modify%20user-library-read%20user-read-playback-position%20user-read-recently-played%20user-top-read%20user-read-email%20playlist-modify-public%20streaming&show_dialog=true"
 
-  createRoomRedirectURI = "http://127.0.0.1:4200/create-a-room";
-  joinRedirectURI = "http://127.0.0.1:4200/join"
+  createRoomRedirectURI = "https://dj.tcon.app/create-a-room";
+  joinRedirectURI = "https://dj.tcon.app/join"
   spotifyUrl = "https://api.spotify.com/v1/me/player/currently-playing";
   tokenURL = "https://accounts.spotify.com/api/token";
 
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient) {
 
-    
+
   }
 
 
@@ -39,7 +39,7 @@ spot.setAccessToken(token);
 
 spot.getMyCurrentPlayingTrack().then( data => {
   console.log(data);
-  
+
   let x = data.item;
   s.album_name = x?.album.name;
   let artistString = "";
@@ -56,7 +56,7 @@ spot.getMyCurrentPlayingTrack().then( data => {
   s.song_uri = newSongUrl;
   s.duration = x?.duration_ms;
   s.progress = data.progress_ms;
-  
+
 }).catch(err => {
   console.log(err)
 })
@@ -67,7 +67,7 @@ return s;
 joinGetAccessToken(code:string): Token {
 
   let body = "grant_type=authorization_code";
-  body += "&code=" + encodeURI(code); 
+  body += "&code=" + encodeURI(code);
   body += "&redirect_uri=" + encodeURI(this.joinRedirectURI);
   body += "&client_id=" + encodeURI(this.client_id);
   body += "&client_secret=" + encodeURI(this.client_secret);
@@ -80,9 +80,9 @@ joinGetAccessToken(code:string): Token {
 
 
 getAccessToken(code:string): Token {
-    
+
       let body = "grant_type=authorization_code";
-      body += "&code=" + encodeURI(code); 
+      body += "&code=" + encodeURI(code);
       body += "&redirect_uri=" + encodeURI(this.createRoomRedirectURI);
       body += "&client_id=" + encodeURI(this.client_id);
       body += "&client_secret=" + encodeURI(this.client_secret);
@@ -92,7 +92,7 @@ getAccessToken(code:string): Token {
 
    callAuthorizationApi(body:string): Token{
 
-    
+
     let xhr = new XMLHttpRequest();
     xhr.open("POST", this.tokenURL);
     xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
@@ -104,20 +104,20 @@ getAccessToken(code:string): Token {
 
       if (xhr.status == 200){
         var data = JSON.parse(xhr.responseText)
-        
+
           if ( data.access_token !== ""){
             token.access_token = data.access_token;
             token.expires_in = 3600;
             token.refresh_token = data.refresh_token;
             token.token_type = data.token_type;
             token.scope = data.scope;
-            
+
           }
-     
-        
-        
+
+
+
       }
-      
+
     }
 
     console.log(token)
@@ -125,7 +125,7 @@ getAccessToken(code:string): Token {
 
     return token;
 
-  
+
   }
 
 
@@ -136,7 +136,7 @@ getAccessToken(code:string): Token {
     let ids: string[] = [id]
     spot.transferMyPlayback(ids);
   }
-  
+
 
 
   djGetDevices(token: string): Device[] {
@@ -159,7 +159,7 @@ getAccessToken(code:string): Token {
     });
     return devices;
   }
-  
+
   guestPlaysDJsong(token: string, s: string): void{
     const spot = new Spotify.default();
 
@@ -167,13 +167,13 @@ getAccessToken(code:string): Token {
     if(s !== undefined){
       spot.queue
       spot.skipToNext();
-    
-      
+
+
     }
 
-    
 
-   
+
+
   }
 
 
@@ -181,7 +181,7 @@ getAccessToken(code:string): Token {
     const spot = new Spotify.default();
     spot.setAccessToken(token);
 
-   
+
     return spot.getMyDevices()
   }
 
@@ -196,7 +196,7 @@ getAccessToken(code:string): Token {
     spot.setAccessToken(token);
     spot.play();
 
-    
+
   }
 
   djSkipSong(token: string): void{
@@ -204,7 +204,7 @@ getAccessToken(code:string): Token {
     spot.setAccessToken(token);
     spot.skipToNext();
   }
-  
+
   // TEST METHOD DO NOT KEEP IN
   addQueue(token: string): void{
     const uri = "spotify:track:4iV5W9uYEdYUVa79Axb7Rh";
@@ -213,7 +213,7 @@ getAccessToken(code:string): Token {
     spot.queue(uri);
 
   }
- 
+
 
 
 }
