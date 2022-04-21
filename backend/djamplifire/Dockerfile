@@ -1,4 +1,4 @@
-FROM  java:8
+FROM public.ecr.aws/amazonlinux/amazonlinux:2
 
 EXPOSE 8082
 
