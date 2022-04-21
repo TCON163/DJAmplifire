@@ -1,4 +1,4 @@
-FROM --platform=linux/arm64/v8 java:8
+FROM  java:8
 
 EXPOSE 8082
 
