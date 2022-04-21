@@ -25,7 +25,7 @@ export class RoomComponent implements OnInit, OnChanges, AfterViewInit {
   DJ_TOKEN!: string;
 
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService, private spotifyService: SpotifyService) { 
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private spotifyService: SpotifyService) {
 
   }
 
@@ -35,7 +35,7 @@ this.getDJCurrentTrack();
   }
 
   ngAfterViewInit(): void {
-  
+
   }
   pause(): void {
     console.log("paused")
@@ -61,9 +61,9 @@ this.getDJCurrentTrack();
 
 
 
-    
 
-  
+
+
     this.route.queryParamMap.subscribe(param => {
       if (param.get("host") === "true") {
         this.host = true;
@@ -83,14 +83,14 @@ this.getDJCurrentTrack();
               this.room.roomCode = data.roomCode;
               this.room.roomTitle = data.roomTitle;
               this.DJ_TOKEN = data.roomToken;
-              
-              
-              
+
+
+
             }, err => {
               console.log(err);
             })
           }
-         
+
         }
         );
       })
@@ -103,7 +103,7 @@ this.getDJCurrentTrack();
               this.room.roomToken = value.toString();
             }
             else if (value.toString() !== "room" && value.toString().length <7){
-              
+
 
               this.room.roomCode = value.toString();
 
@@ -113,7 +113,7 @@ this.getDJCurrentTrack();
               this.room.roomCode = data.roomCode;
               this.room.roomTitle = data.roomTitle;
               this.DJ_TOKEN = data.roomToken;
-                
+
               }, err => {
                 console.log(err);
               })
@@ -133,22 +133,22 @@ this.getDJCurrentTrack();
      this.getGuestCurrentTrack();
      this.getDeviceList();
      this.getGuestDevices
-   },500)   
+   },500)
 
    interval(5000).subscribe(x => {
      this.setGuestSong();
      this.getGuestCurrentTrack();
-    
+
      this.getDeviceList();
      this.getGuestDevices();
    })
-   
+
     interval(30000).subscribe( x => {
       this.getDJCurrentTrack();
-      
+
     })
 
-    
+
   }
 
   test(): void{
@@ -163,7 +163,7 @@ this.getDJCurrentTrack();
 
   }
   getDJCurrentTrack(): void {
-    
+
     this.currentSong = this.spotifyService.getCurrentlyPlayingTrack(this.DJ_TOKEN)
 
     console.log(this.currentSong)
@@ -171,7 +171,7 @@ this.getDJCurrentTrack();
 
   getGuestCurrentTrack(): void{
     if (!this.host){
-      
+
       if ( this.guestCurrentSong.song_uri === this.currentSong.song_uri){
 
         let x = "spotify:track:"
